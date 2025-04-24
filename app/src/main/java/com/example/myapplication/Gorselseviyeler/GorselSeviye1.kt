@@ -3,13 +3,7 @@ package com.example.myapplication.Gorselseviyeler
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.MeyveSebzeActivity
-import com.example.myapplication.EvEsyalariActivity
-import com.example.myapplication.HayvanlarActivity
 import com.example.myapplication.R
-import com.example.myapplication.RenklerActivity
-import com.example.myapplication.TemelFiillerActivity
-import com.example.myapplication.YiyecekIcecekActivity
 
 class GorselSeviye1 : AppCompatActivity() {
 

@@ -2,9 +2,12 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.Gorselseviyeler.Gorsel
+import com.example.myapplication.authentication.Giris
+import com.example.myapplication.kelimeseviyeler.KelimePratik
+import com.example.myapplication.sesliseviyeler.SesliPratik
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth

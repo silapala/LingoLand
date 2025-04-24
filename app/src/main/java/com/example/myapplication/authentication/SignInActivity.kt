@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.authentication
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,17 +7,20 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.MainActivity
+import com.example.myapplication.R
+import com.example.myapplication.auth
 
 class Giris : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_giris)
+        setContentView(R.layout.activity_sign_in)
 
         // EditText ve Button bileşenlerini tanımla
         val emailEditText = findViewById<EditText>(R.id.emailEditText)
         val passwordEditText = findViewById<EditText>(R.id.passwordEditText)
         val loginButton = findViewById<Button>(R.id.loginButton)
-        val signupText = findViewById<TextView>(R.id.signupText)
+        val toSignUpButton = findViewById<Button>(R.id.toSignUpButton)
 
         // Giriş butonuna tıklama işlemi örneği
         loginButton.setOnClickListener {
@@ -44,9 +47,9 @@ class Giris : AppCompatActivity() {
         }
 
         // Kayıt ol yazısına tıklama işlemi örneği
-        signupText.setOnClickListener {
-            Toast.makeText(this, "Kayıt ol sayfasına yönlendiriliyor...", Toast.LENGTH_SHORT).show()
-            // startActivity(Intent(this, KayitActivity::class.java)) gibi yönlendirme yapılabilir
+        toSignUpButton.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
         }
     }
 }

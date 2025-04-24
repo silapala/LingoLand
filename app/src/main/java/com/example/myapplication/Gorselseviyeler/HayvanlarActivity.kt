@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.Gorselseviyeler
 
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
@@ -7,11 +7,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.example.myapplication.R
 import java.util.*
 import com.example.myapplication.adapters.WordCardAdapter
 import com.example.myapplication.models.WordCard
 
-class EvEsyalariActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
+class HayvanlarActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private lateinit var tts: TextToSpeech
     private lateinit var viewPager: ViewPager2
@@ -20,7 +21,7 @@ class EvEsyalariActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ev_esyalari)
+        setContentView(R.layout.activity_hayvanlar)
 
         viewPager = findViewById(R.id.viewPagerWords)
         tts = TextToSpeech(this, this)
@@ -50,30 +51,35 @@ class EvEsyalariActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             override fun onPageSelected(position: Int) {
                 speechBubble.text = messages.random()
                 speechBubble.visibility = View.VISIBLE
-
+println(position)
                 speechBubble.postDelayed({
                     speechBubble.visibility = View.GONE
                 }, 3000)
             }
         })
 
+
         wordList = listOf(
-            WordCard(R.drawable.ev1, "Armchair"),
-            WordCard(R.drawable.ev2, "Bed"),
-            WordCard(R.drawable.ev3, "Door"),
-            WordCard(R.drawable.ev4, "Table"),
-            WordCard(R.drawable.ev5, "Pillow"),
-            WordCard(R.drawable.ev6, "Chair"),
-            WordCard(R.drawable.ev7, "Window"),
-            WordCard(R.drawable.ev8, "Lamp"),
-            WordCard(R.drawable.ev9, "Glass"),
-            WordCard(R.drawable.ev10, "Plate"),
-            WordCard(R.drawable.ev11, "Fork"),
-            WordCard(R.drawable.ev12, "Spoon"),
-            WordCard(R.drawable.ev13, "Knife"),
-            WordCard(R.drawable.ev14, "Window"),
-            WordCard(R.drawable.ev15, "Home"),
-            )
+            WordCard(R.drawable.resim6, "Dog"),
+            WordCard(R.drawable.resim7, "Horse"),
+            WordCard(R.drawable.resim13, "Fish"),
+            WordCard(R.drawable.resim14, "Bird"),
+            WordCard(R.drawable.hayvan1, "Monkey"),
+            WordCard(R.drawable.hayvan2, "Donkey"),
+            WordCard(R.drawable.hayvan3, "Lion"),
+            WordCard(R.drawable.hayvan4, "Cow"),
+            WordCard(R.drawable.hayvan5, "Bee"),
+            WordCard(R.drawable.hayvan6, "Duck"),
+            WordCard(R.drawable.hayvan7, "Chicken"),
+            WordCard(R.drawable.hayvan8, "Frog"),
+            WordCard(R.drawable.hayvan9, "Ant"),
+            WordCard(R.drawable.hayvan10, "Snack"),
+            WordCard(R.drawable.hayvan11, "Wolf"),
+            WordCard(R.drawable.hayvan12, "Lamb"),
+            WordCard(R.drawable.hayvan13, "Cat"),
+            WordCard(R.drawable.hayvan14, "Rabbit"),
+            WordCard(R.drawable.hayvan15, "Butterfly"),
+        )
 
         wordCardAdapter = WordCardAdapter(wordList) { word ->
             speakWord(word)

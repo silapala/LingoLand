@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.Gorselseviyeler
 
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
@@ -7,11 +7,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.example.myapplication.R
 import java.util.*
 import com.example.myapplication.adapters.WordCardAdapter
 import com.example.myapplication.models.WordCard
 
-class YiyecekIcecekActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
+class MeyveSebzeActivity: AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private lateinit var tts: TextToSpeech
     private lateinit var viewPager: ViewPager2
@@ -20,7 +21,7 @@ class YiyecekIcecekActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_yiyecekicecek)
+        setContentView(R.layout.activity_meyvesebze)
 
         viewPager = findViewById(R.id.viewPagerWords)
         tts = TextToSpeech(this, this)
@@ -50,7 +51,7 @@ class YiyecekIcecekActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             override fun onPageSelected(position: Int) {
                 speechBubble.text = messages.random()
                 speechBubble.visibility = View.VISIBLE
-                println(position)
+
                 speechBubble.postDelayed({
                     speechBubble.visibility = View.GONE
                 }, 3000)
@@ -59,24 +60,27 @@ class YiyecekIcecekActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
 
         wordList = listOf(
+            WordCard(R.drawable.meyve1, "Cherry"),
+            WordCard(R.drawable.meyve2, "Banana"),
+            WordCard(R.drawable.meyve3, "Apple"),
+            WordCard(R.drawable.meyve4, "Orange"),
+            WordCard(R.drawable.meyve5, "Grape"),
+            WordCard(R.drawable.meyve6, "Watermelon"),
+            WordCard(R.drawable.meyve17, "Strawberry"),
+            WordCard(R.drawable.meyve7, "Pear"),
+            WordCard(R.drawable.meyve8, "Peach"),
+            WordCard(R.drawable.meyve9, "Kiwi"),
+            WordCard(R.drawable.meyve10, "Lemon"),
+            WordCard(R.drawable.meyve11, "Carrot"),
+            WordCard(R.drawable.meyve12, "potato"),
+            WordCard(R.drawable.meyve13, "Corn"),
+            WordCard(R.drawable.meyve14, "Pepper"),
+            WordCard(R.drawable.meyve15, "Tomato"),
+            WordCard(R.drawable.meyve16, "Onion"),
+            WordCard(R.drawable.meyve18, "Cucumber"),
 
-            WordCard(R.drawable.yemek15, "Milk"),
-            WordCard(R.drawable.yemek1, "Cheese"),
-            WordCard(R.drawable.yemek2, "Egg"),
-            WordCard(R.drawable.yemek3, "Olive"),
-            WordCard(R.drawable.yemek4, "Beef"),
-            WordCard(R.drawable.yemek5, "Salad"),
-            WordCard(R.drawable.yemek6, "Pasta"),
-            WordCard(R.drawable.yemek7, "Soup"),
-            WordCard(R.drawable.yemek8, "Rice"),
-            WordCard(R.drawable.yemek9, "İce cream"),
-            WordCard(R.drawable.yemek10, "Chocolate"),
-            WordCard(R.drawable.yemek11, "Cookie"),
-            WordCard(R.drawable.yemek12, "Coffee"),
-            WordCard(R.drawable.yemek13, "Sandwich"),
-            WordCard(R.drawable.yemek14, "Honey"),
-            WordCard(R.drawable.yemek18, "Bread"),
-        )
+
+            )
 
         wordCardAdapter = WordCardAdapter(wordList) { word ->
             speakWord(word)

@@ -1,16 +1,11 @@
-package com.example.myapplication
+package com.example.myapplication.kelimeseviyeler
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.Gorselseviyeler.GorselSeviye1
-import com.example.myapplication.Gorselseviyeler.Gorsev2
-import com.example.myapplication.Gorselseviyeler.Goseviye3
-import com.example.myapplication.kelimeseviyeler.KeliPrati2
-import com.example.myapplication.kelimeseviyeler.KelimeP1
-import com.example.myapplication.kelimeseviyeler.KelimePra3
+import com.example.myapplication.R
 
 class KelimePratik : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -20,11 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.myapplication.Gorsel" />
-        <activity android:name="com.example.myapplication.KelimePratik" />
+        <activity android:name="com.example.myapplication.Gorselseviyeler.Gorsel" />
+        <activity android:name="com.example.myapplication.kelimeseviyeler.KelimePratik" />
         <activity android:name="com.example.myapplication.CumleKurma" />
-        <activity android:name="com.example.myapplication.SesliPratik" />
-        <activity android:name="com.example.myapplication.Giris" />
+        <activity android:name="com.example.myapplication.sesliseviyeler.SesliPratik" />
+        <activity android:name="com.example.myapplication.authentication.Giris" />
         <activity android:name="com.example.myapplication.cumleseviyeler.CumKur1"/>
         <activity android:name="com.example.myapplication.cumleseviyeler.CumSviye2"/>
         <activity android:name="com.example.myapplication.cumleseviyeler.CuSeviye3"/>
@@ -37,14 +37,15 @@
         <activity android:name="com.example.myapplication.sesliseviyeler.SesliSev1"/>
         <activity android:name="com.example.myapplication.sesliseviyeler.Ses2"/>
         <activity android:name="com.example.myapplication.sesliseviyeler.SeSevi3"/>
-        <activity android:name="com.example.myapplication.HayvanlarActivity"/>
-        <activity android:name="com.example.myapplication.MeyveSebzeActivity"/>
-        <activity android:name="com.example.myapplication.RenklerActivity"/>
-        <activity android:name="com.example.myapplication.YiyecekIcecekActivity"/>
-        <activity android:name="com.example.myapplication.TemelFiillerActivity"/>
-        <activity android:name="com.example.myapplication.EvEsyalariActivity"/>
+        <activity android:name="com.example.myapplication.Gorselseviyeler.HayvanlarActivity"/>
+        <activity android:name="com.example.myapplication.Gorselseviyeler.MeyveSebzeActivity"/>
+        <activity android:name="com.example.myapplication.Gorselseviyeler.RenklerActivity"/>
+        <activity android:name="com.example.myapplication.Gorselseviyeler.YiyecekIcecekActivity"/>
+        <activity android:name="com.example.myapplication.Gorselseviyeler.TemelFiillerActivity"/>
+        <activity android:name="com.example.myapplication.Gorselseviyeler.EvEsyalariActivity"/>
         <activity android:name="com.example.myapplication.temeldil.OzneActivity"/>
         <activity android:name="com.example.myapplication.temeldil.NesneActivity"/>
+        <activity android:name="com.example.myapplication.authentication.SignUpActivity" />
 
     </application>
 

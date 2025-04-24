@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/loginLayout"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="#87CEEB"
-    tools:context=".Gorsel">
-
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/loginLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#87CEEB"
+    tools:context=".Gorselseviyeler.Gorsel">
 
     <ImageView
         android:id="@+id/sunImage"
@@ -83,15 +82,15 @@ android:background="#87CEEB"
         android:contentDescription="cloud4"
         android:src="@drawable/cloud4" />
 
-<ImageView
-android:id="@+id/cloud5"
-android:layout_width="130dp"
-android:layout_height="90dp"
-android:layout_marginTop="170dp"
-android:layout_alignParentEnd="true"
-android:layout_marginEnd="20dp"
-android:src="@drawable/cloud5"
-android:contentDescription="cloud5" />
+    <ImageView
+        android:id="@+id/cloud5"
+        android:layout_width="130dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="170dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/cloud5"
+        android:contentDescription="cloud5" />
 
     <ImageView
         android:id="@+id/cloud7"
@@ -121,20 +120,21 @@ android:contentDescription="cloud5" />
         android:layout_marginBottom="100dp"
         android:contentDescription="cloud2"
         android:src="@drawable/cloud2" />
+
     <ImageView
-    android:id="@+id/cloud8"
-    android:layout_width="130dp"
-    android:layout_height="90dp"
-    android:layout_alignParentStart="true"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentEnd="true"
-    android:layout_alignParentBottom="true"
-    android:layout_marginStart="0dp"
-    android:layout_marginTop="383dp"
-    android:layout_marginEnd="303dp"
-    android:layout_marginBottom="258dp"
-    android:contentDescription="cloud5"
-    android:src="@drawable/cloud5" />
+        android:id="@+id/cloud8"
+        android:layout_width="130dp"
+        android:layout_height="90dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="383dp"
+        android:layout_marginEnd="303dp"
+        android:layout_marginBottom="258dp"
+        android:contentDescription="cloud5"
+        android:src="@drawable/cloud5" />
 
 
     <ImageView
@@ -240,17 +240,17 @@ android:contentDescription="cloud5" />
         android:padding="12dp" />
 
 
-<EditText
-android:id="@+id/passwordEditText"
-android:layout_width="300dp"
-android:layout_height="50dp"
-android:layout_below="@id/emailEditText"
-android:layout_centerHorizontal="true"
-android:layout_marginTop="20dp"
-android:hint="Şifre"
-android:padding="12dp"
-android:background="@drawable/edittext_background"
-android:inputType="textPassword" />
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/emailEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="Şifre"
+        android:padding="12dp"
+        android:background="@drawable/edittext_background"
+        android:inputType="textPassword" />
 
 
     <Button
@@ -265,17 +265,13 @@ android:inputType="textPassword" />
         android:text="Giriş Yap"
         android:textColor="#FFFFFF" />
 
-
-    <TextView
-        android:id="@+id/signupText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/loginButton"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="219dp"
+    <Button
+        android:id="@+id/toSignUpButton"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/loginButton"        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
         android:text="Hesabın yok mu? Kayıt ol"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp" />
-    </RelativeLayout>
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>

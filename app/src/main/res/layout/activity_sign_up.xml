@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/registerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#87CEEB"
+    tools:context=".authentication.SignUpActivity">
+
+    <!-- Arka plan görselleri (girişle aynı) -->
+    <ImageView
+        android:id="@+id/sunImage"
+        android:layout_width="83dp"
+        android:layout_height="104dp"
+        android:layout_marginStart="312dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="611dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/gunes"
+        android:contentDescription="Sun" />
+
+    <!-- (Tüm cloud görselleri girişle aynı şekilde burada tekrarlandı) -->
+    <!-- Örnek bir tanesi (hepsini senin gönderdiğin gibi dahil edebilirsin): -->
+    <ImageView
+        android:id="@+id/cloud1"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="281dp"
+        android:layout_marginBottom="611dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/cloud1"
+        android:contentDescription="cloud1" />
+
+    <!-- Başlık -->
+    <TextView
+        android:id="@+id/registerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:layout_marginBottom="473dp"
+        android:layout_centerHorizontal="true"
+        android:text="Kayıt Ol"
+        android:textColor="#0A17AF"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <!-- Kullanıcı Adı -->
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="270dp"
+        android:background="@drawable/edittext_background"
+        android:hint="Kullanıcı Adı"
+        android:inputType="textPersonName"
+        android:padding="12dp" />
+
+    <!-- E-posta -->
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/usernameEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edittext_background"
+        android:hint="E-posta"
+        android:inputType="textEmailAddress"
+        android:padding="12dp" />
+
+    <!-- Şifre -->
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/emailEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="Şifre"
+        android:padding="12dp"
+        android:background="@drawable/edittext_background"
+        android:inputType="textPassword" />
+
+    <!-- Kayıt Ol Butonu -->
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/passwordEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_background"
+        android:backgroundTint="@color/colorButton1"
+        android:text="Kayıt Ol"
+        android:textColor="#FFFFFF" />
+
+    <!-- Giriş yap linki -->
+    <TextView
+        android:id="@+id/loginText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/registerButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="219dp"
+        android:text="Zaten hesabın var mı? Giriş yap"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+</RelativeLayout>

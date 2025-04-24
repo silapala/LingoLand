@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.Gorselseviyeler
 
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
@@ -7,11 +7,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.example.myapplication.R
 import java.util.*
 import com.example.myapplication.adapters.WordCardAdapter
 import com.example.myapplication.models.WordCard
 
-class TemelFiillerActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
+class RenklerActivity: AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private lateinit var tts: TextToSpeech
     private lateinit var viewPager: ViewPager2
@@ -20,7 +21,7 @@ class TemelFiillerActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_temel_fiiller)
+        setContentView(R.layout.activity_renkler)
 
         viewPager = findViewById(R.id.viewPagerWords)
         tts = TextToSpeech(this, this)
@@ -50,24 +51,28 @@ class TemelFiillerActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             override fun onPageSelected(position: Int) {
                 speechBubble.text = messages.random()
                 speechBubble.visibility = View.VISIBLE
-                println(position)
+
                 speechBubble.postDelayed({
                     speechBubble.visibility = View.GONE
                 }, 3000)
             }
         })
 
-
         wordList = listOf(
-            WordCard(R.drawable.fiil1, "Run"),
-            WordCard(R.drawable.fiil2, "Sing"),
-            WordCard(R.drawable.fiil3, "Drink"),
-            WordCard(R.drawable.fiil5, "Eat"),
-            WordCard(R.drawable.fiil6, "Fall"),
-            WordCard(R.drawable.fiil7, "Hear"),
-            WordCard(R.drawable.fiil8, "Sit"),
+            WordCard(R.drawable.renk1, "Red"),
+            WordCard(R.drawable.renk2, "Blue"),
+            WordCard(R.drawable.renk3, "Yellow"),
+            WordCard(R.drawable.renk4, "Pink"),
+            WordCard(R.drawable.renk5, "Black"),
+            WordCard(R.drawable.renk6, "White"),
+            WordCard(R.drawable.renk7, "Yellow"),
+            WordCard(R.drawable.renk8, "Purple"),
+            WordCard(R.drawable.renk9, "Brown"),
+            WordCard(R.drawable.renk10, "Gray"),
+            WordCard(R.drawable.renk11, "Orange"),
 
-        )
+
+            )
 
         wordCardAdapter = WordCardAdapter(wordList) { word ->
             speakWord(word)

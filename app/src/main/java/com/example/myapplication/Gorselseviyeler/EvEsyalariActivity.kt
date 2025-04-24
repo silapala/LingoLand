@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.Gorselseviyeler
 
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
@@ -7,11 +7,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.example.myapplication.R
 import java.util.*
 import com.example.myapplication.adapters.WordCardAdapter
 import com.example.myapplication.models.WordCard
 
-class MeyveSebzeActivity: AppCompatActivity(), TextToSpeech.OnInitListener {
+class EvEsyalariActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private lateinit var tts: TextToSpeech
     private lateinit var viewPager: ViewPager2
@@ -20,7 +21,7 @@ class MeyveSebzeActivity: AppCompatActivity(), TextToSpeech.OnInitListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_meyvesebze)
+        setContentView(R.layout.activity_ev_esyalari)
 
         viewPager = findViewById(R.id.viewPagerWords)
         tts = TextToSpeech(this, this)
@@ -57,28 +58,22 @@ class MeyveSebzeActivity: AppCompatActivity(), TextToSpeech.OnInitListener {
             }
         })
 
-
         wordList = listOf(
-            WordCard(R.drawable.meyve1, "Cherry"),
-            WordCard(R.drawable.meyve2, "Banana"),
-            WordCard(R.drawable.meyve3, "Apple"),
-            WordCard(R.drawable.meyve4, "Orange"),
-            WordCard(R.drawable.meyve5, "Grape"),
-            WordCard(R.drawable.meyve6, "Watermelon"),
-            WordCard(R.drawable.meyve17, "Strawberry"),
-            WordCard(R.drawable.meyve7, "Pear"),
-            WordCard(R.drawable.meyve8, "Peach"),
-            WordCard(R.drawable.meyve9, "Kiwi"),
-            WordCard(R.drawable.meyve10, "Lemon"),
-            WordCard(R.drawable.meyve11, "Carrot"),
-            WordCard(R.drawable.meyve12, "potato"),
-            WordCard(R.drawable.meyve13, "Corn"),
-            WordCard(R.drawable.meyve14, "Pepper"),
-            WordCard(R.drawable.meyve15, "Tomato"),
-            WordCard(R.drawable.meyve16, "Onion"),
-            WordCard(R.drawable.meyve18, "Cucumber"),
-
-
+            WordCard(R.drawable.ev1, "Armchair"),
+            WordCard(R.drawable.ev2, "Bed"),
+            WordCard(R.drawable.ev3, "Door"),
+            WordCard(R.drawable.ev4, "Table"),
+            WordCard(R.drawable.ev5, "Pillow"),
+            WordCard(R.drawable.ev6, "Chair"),
+            WordCard(R.drawable.ev7, "Window"),
+            WordCard(R.drawable.ev8, "Lamp"),
+            WordCard(R.drawable.ev9, "Glass"),
+            WordCard(R.drawable.ev10, "Plate"),
+            WordCard(R.drawable.ev11, "Fork"),
+            WordCard(R.drawable.ev12, "Spoon"),
+            WordCard(R.drawable.ev13, "Knife"),
+            WordCard(R.drawable.ev14, "Window"),
+            WordCard(R.drawable.ev15, "Home"),
             )
 
         wordCardAdapter = WordCardAdapter(wordList) { word ->
