@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "730974821310",
+    "project_id": "lingoland-4c7d7",
+    "storage_bucket": "lingoland-4c7d7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:730974821310:android:a64e9ee16f92cfdadeb7ef",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAICAwqdTfJw7GpUerRRxnCmNwR6Vb6Vyo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

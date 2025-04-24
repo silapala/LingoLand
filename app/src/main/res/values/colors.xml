@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#92D564</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="whiteh">#DE783A</color>
+    <color name="whitehi">#CA5EDC</color>
+    <color name="whito">#822BB6</color>
+    <color name="circleBackground">#FFE800</color>
+    <color name="colorBacakground">#6097F2</color>
+    <color name="colorBackground">#FDFDFD</color>
+    <color name="colorButton1">#FF9800</color>
+    <color name="colorButton2">#4CAF50</color>
+    <color name="colorButton3">#2196F3</color>
+    <color name="colorButton4">#9C27B0</color>
+    <color name="arkaplan">#564F7A</color>
+        <color name="colorPrimary">#1976D2</color>
+<color name="kartback">#5EEF9E9E</color>
+        <color name="seviye1_rengi">#FF5733</color>
+        <color name="seviye2_rengi">#33FF57</color>
+        <color name="seviye3_rengi">#D500F9</color>
+    <color name="card_background">#DDFB7F2C</color>
+
+</resources>
