@@ -228,7 +228,7 @@ android:contentDescription="cloud5" />
 
 
     <EditText
-        android:id="@+id/usernameEditText"
+        android:id="@+id/emailEditText"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
@@ -244,7 +244,7 @@ android:contentDescription="cloud5" />
 android:id="@+id/passwordEditText"
 android:layout_width="300dp"
 android:layout_height="50dp"
-android:layout_below="@id/usernameEditText"
+android:layout_below="@id/emailEditText"
 android:layout_centerHorizontal="true"
 android:layout_marginTop="20dp"
 android:hint="Şifre"
