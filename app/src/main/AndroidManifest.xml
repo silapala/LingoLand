@@ -46,6 +46,7 @@
         <activity android:name="com.example.myapplication.temeldil.OzneActivity"/>
         <activity android:name="com.example.myapplication.temeldil.NesneActivity"/>
         <activity android:name="com.example.myapplication.authentication.SignUpActivity" />
+        <activity android:name="com.example.myapplication.authentication.UserAccount" />
 
     </application>
 
