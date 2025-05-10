@@ -1,12 +1,10 @@
-package com.example.myapplication
+package com.example.myapplication.cumleseviyeler
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.cumleseviyeler.CumKur1
-import com.example.myapplication.cumleseviyeler.CumSviye2
-import com.example.myapplication.cumleseviyeler.CuSeviye3
+import com.example.myapplication.R
 
 class CumleKurma : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

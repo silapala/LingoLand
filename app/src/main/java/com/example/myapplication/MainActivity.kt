@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.Gorselseviyeler.Gorsel
 import com.example.myapplication.authentication.Giris
+import com.example.myapplication.cumleseviyeler.CumleKurma
 import com.example.myapplication.kelimeseviyeler.KelimePratik
 import com.example.myapplication.sesliseviyeler.SesliPratik
 import com.google.firebase.Firebase

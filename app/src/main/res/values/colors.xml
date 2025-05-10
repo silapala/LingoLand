@@ -17,12 +17,18 @@
     <color name="colorButton2">#4CAF50</color>
     <color name="colorButton3">#2196F3</color>
     <color name="colorButton4">#9C27B0</color>
-    <color name="arkaplan">#564F7A</color>
+    <color name="arkaplan">#E5B6B5B6</color>
         <color name="colorPrimary">#1976D2</color>
 <color name="kartback">#5EEF9E9E</color>
         <color name="seviye1_rengi">#FF5733</color>
         <color name="seviye2_rengi">#33FF57</color>
         <color name="seviye3_rengi">#D500F9</color>
     <color name="card_background">#DDFB7F2C</color>
+    <color name="red_200">#EF9A9A</color>
+
+    <color name="orange_200">#FFCC80</color>
+    <color name="green_200">#A5D6A7</color>
+    <color name="blue_200">#90CAF9</color>
+    <color name="yellow_200">#FFF59D</color>
 
 </resources>

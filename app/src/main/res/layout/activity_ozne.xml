@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Başlık -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Zamirler (Pronouns)"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Özne tanımı -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true"
+            app:cardBackgroundColor="@color/arkaplan">
+
+            <TextView
+                android:id="@+id/ozneDefinition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Özne nedir? Özne, cümlede işi yapan ya da durumu bildiren öğedir. Özel isimler de öznedir."
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:padding="16dp" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Başlık Satırı -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="İngilizce"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:gravity="center" />
+
+            <Space
+                android:layout_width="40dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Türkçe"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:gravity="center" />
+        </LinearLayout>
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPagerOzne"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+        <Button
+            android:id="@+id/buttonLeft"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:text="◀"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent" />
+
+        <!-- Sağ geçiş butonu -->
+        <Button
+            android:id="@+id/buttonRight"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:text="▶"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent" />
+
+        <LinearLayout
+            android:id="@+id/blocksContainer"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>

@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 import com.example.myapplication.R
 import com.example.myapplication.temeldil.OzneActivity
 
+
 class KelimeP1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
