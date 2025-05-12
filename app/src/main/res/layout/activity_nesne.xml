@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:gravity="center"
-            android:text="Özneler (Subjects)"
+            android:text="Nesneler (Objects)"
             android:textColor="@color/colorPrimary"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:text="Özne nedir? Özne, cümlede işi yapan ya da durumu bildiren öğedir. Özel isimler de öznedir."
+                android:text="Nesne nedir? Cümlede öznenin yaptığı iş ve eylemden doğrudan etkilenen ögedir."
                 android:textColor="@color/black"
                 android:textSize="20sp" />
         </androidx.cardview.widget.CardView>
@@ -46,12 +46,11 @@
 
 
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPagerOzne"
+            android:id="@+id/viewPagerNesne"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="16dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            android:padding="16dp" />
+
 
         <LinearLayout
             android:id="@+id/blocksContainer"

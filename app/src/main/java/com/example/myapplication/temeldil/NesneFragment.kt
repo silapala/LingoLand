@@ -1,4 +1,4 @@
-package com.example.myapplication.kelimeseviyeler
+package com.example.myapplication.temeldil
 
 import android.graphics.Color
 import android.os.Bundle
@@ -6,19 +6,20 @@ import android.speech.tts.TextToSpeech
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.ImageButton
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.myapplication.R
-import java.util.Locale
+import java.util.*
 
-class OzneFragment(
-    private val pronouns: List<Pair<String, String>>,
+class NesneFragment(
+    private val objects: List<Pair<String, String>>,
     private val tts: TextToSpeech
-) : Fragment(R.layout.fragment_ozne_page) {
+) : Fragment(R.layout.fragment_nesne_page) {
 
     private lateinit var viewPager: ViewPager2
     private lateinit var recyclerView: RecyclerView
@@ -33,7 +34,7 @@ class OzneFragment(
         nextButton = view.findViewById(R.id.nextButton)
 
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = OzneAdapter(pronouns, tts)
+        recyclerView.adapter = NesneAdapter(objects, tts)
 
         previousButton.setOnClickListener {
             viewPager.currentItem = viewPager.currentItem - 1
@@ -46,7 +47,7 @@ class OzneFragment(
 
     override fun onResume() {
         super.onResume()
-        viewPager = requireActivity().findViewById(R.id.viewPagerOzne)
+        viewPager = requireActivity().findViewById(R.id.viewPagerNesne)
         updateNavigationButtons()
     }
 
@@ -57,19 +58,14 @@ class OzneFragment(
     }
 }
 
-class OzneAdapter(
+class NesneAdapter(
     private val items: List<Pair<String, String>>,
     private val tts: TextToSpeech
-) : RecyclerView.Adapter<OzneAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<NesneAdapter.ViewHolder>() {
 
     private val cardColors = listOf(
-        "#FF7043",
-        "#90CAF9",
-        "#A5D6A7",
-        "#EC407A",
-        "#7E57C2",
-        "#FFCC80",
-        "#26A69A"
+        "#FF7043", "#90CAF9", "#A5D6A7",
+        "#EC407A", "#7E57C2", "#FFCC80", "#26A69A"
     )
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

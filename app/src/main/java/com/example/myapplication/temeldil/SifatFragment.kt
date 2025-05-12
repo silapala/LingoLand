@@ -1,4 +1,5 @@
-package com.example.myapplication.kelimeseviyeler
+package com.example.myapplication.temeldil
+
 
 import android.graphics.Color
 import android.os.Bundle
@@ -6,17 +7,18 @@ import android.speech.tts.TextToSpeech
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.ImageButton
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.myapplication.R
-import java.util.Locale
+import java.util.*
 
-class OzneFragment(
-    private val pronouns: List<Pair<String, String>>,
+class SifatFragment(
+    private val sifatlar: List<Pair<String, String>>,
     private val tts: TextToSpeech
 ) : Fragment(R.layout.fragment_ozne_page) {
 
@@ -33,7 +35,7 @@ class OzneFragment(
         nextButton = view.findViewById(R.id.nextButton)
 
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = OzneAdapter(pronouns, tts)
+        recyclerView.adapter = SifatAdapter(sifatlar, tts)
 
         previousButton.setOnClickListener {
             viewPager.currentItem = viewPager.currentItem - 1
@@ -46,7 +48,7 @@ class OzneFragment(
 
     override fun onResume() {
         super.onResume()
-        viewPager = requireActivity().findViewById(R.id.viewPagerOzne)
+        viewPager = requireActivity().findViewById(R.id.viewPagerSifat)
         updateNavigationButtons()
     }
 
@@ -57,19 +59,14 @@ class OzneFragment(
     }
 }
 
-class OzneAdapter(
+class SifatAdapter(
     private val items: List<Pair<String, String>>,
     private val tts: TextToSpeech
-) : RecyclerView.Adapter<OzneAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<SifatAdapter.ViewHolder>() {
 
     private val cardColors = listOf(
-        "#FF7043",
-        "#90CAF9",
-        "#A5D6A7",
-        "#EC407A",
-        "#7E57C2",
-        "#FFCC80",
-        "#26A69A"
+        "#FF7043", "#90CAF9", "#A5D6A7",
+        "#EC407A", "#7E57C2", "#FFCC80", "#26A69A"
     )
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

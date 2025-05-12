@@ -1,41 +1,45 @@
 package com.example.myapplication.temeldil
 
+
+
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.myapplication.R
-import com.example.myapplication.temeldil.NesnePagerAdapter
+import com.example.myapplication.temeldil.YuklemPagerAdapter
 import java.util.*
 
-class NesneActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
+class YuklemActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private lateinit var tts: TextToSpeech
     private lateinit var viewPager: ViewPager2
 
-    private val objectPages = listOf(
+    private val verbPages = listOf(
         listOf(
-            Pair("Book", "Kitap"),
-            Pair("Table", "Masa"),
-            Pair("Chair", "Sandalye"),
-            Pair("Pen", "Kalem")
+            Pair("Run", "Koşmak"),
+            Pair("Eat", "Yemek"),
+            Pair("Sleep", "Uyumak"),
+            Pair("Go", "Gitmek"),
+            Pair("Read", "Okumak")
         ),
         listOf(
-            Pair("Phone", "Telefon"),
-            Pair("Window", "Pencere"),
-            Pair("Bag", "Çanta"),
-            Pair("Car", "Araba")
+            Pair("Write", "Yazmak"),
+            Pair("Play", "Oynamak"),
+            Pair("Speak", "Konuşmak"),
+            Pair("Listen", "Dinlemek"),
+            Pair("Watch", "İzlemek")
         )
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_nesne)
+        setContentView(R.layout.activity_yuklem)
 
         tts = TextToSpeech(this, this)
-        viewPager = findViewById(R.id.viewPagerNesne)
+        viewPager = findViewById(R.id.viewPagerYuklem)
 
-        val adapter = NesnePagerAdapter(this, objectPages, tts)
+        val adapter = YuklemPagerAdapter(this, verbPages, tts)
         viewPager.adapter = adapter
     }
 
