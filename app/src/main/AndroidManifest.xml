@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -48,6 +50,7 @@
         <activity android:name="com.example.myapplication.temeldil.NesneActivity"/>
         <activity android:name=".temeldil.YuklemActivity" />
         <activity android:name=".temeldil.SifatActivity" />
+        <activity android:name=".authentication.SignUpActivity" />
 
     </application>
 

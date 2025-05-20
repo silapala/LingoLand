@@ -8,8 +8,16 @@
     android:background="@drawable/bg_card_yemek"
     android:padding="16dp">
 
-
-
+    <TextView
+        android:id="@+id/txtSeviye1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seviye 1: Görsel Pratik"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="12dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"

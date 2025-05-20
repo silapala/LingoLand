@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".cumleseviyeler.QuestionSentenceFragment">
+
+    <TextView
+        android:id="@+id/textViewQuestion1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Do you like apples?"
+        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="32dp" />
+
+    <ImageButton
+        android:id="@+id/speakButton1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@android:color/transparent"
+        android:src="@android:drawable/ic_btn_speak_now"
+        app:layout_constraintStart_toEndOf="@+id/textViewQuestion1"
+        app:layout_constraintTop_toTopOf="@+id/textViewQuestion1"
+        android:contentDescription="Seslendir" />
+
+    <TextView
+        android:id="@+id/textViewQuestion2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Does she play tennis?"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewQuestion1"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="32dp" />
+
+    <ImageButton
+        android:id="@+id/speakButton2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@android:color/transparent"
+        android:src="@android:drawable/ic_btn_speak_now"
+        app:layout_constraintStart_toEndOf="@+id/textViewQuestion2"
+        app:layout_constraintTop_toTopOf="@+id/textViewQuestion2"
+        android:contentDescription="Seslendir" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
