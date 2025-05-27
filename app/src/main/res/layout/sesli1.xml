@@ -1,23 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
+    android:background="#F0F7FF"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/txtSeviye1"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Seviye 1: Sesli Pratik"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp"/>
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnGeri"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Geri Dön"/>
-</LinearLayout>
+        <TextView
+            android:id="@+id/txtSeviye1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seviye 1: Sesli Pratik"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#2196F3"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/txtProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="İlerleme: 0/10"
+            android:textSize="18sp"
+            android:textColor="#4CAF50"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_horizontal" />
+
+        <LinearLayout
+            android:id="@+id/wordListContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/btnGeri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔙 Geri Dön"
+            android:backgroundTint="#9E9E9E"
+            android:layout_marginTop="24dp"
+            android:layout_gravity="start" />
+
+    </LinearLayout>
+</ScrollView>

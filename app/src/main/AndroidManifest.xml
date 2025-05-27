@@ -31,7 +31,7 @@
         <activity android:name="com.example.myapplication.cumleseviyeler.CumSviye2"/>
         <activity android:name="com.example.myapplication.cumleseviyeler.CuSeviye3"/>
         <activity android:name="com.example.myapplication.Gorselseviyeler.GorselSeviye1"/>
-        <activity android:name="com.example.myapplication.Gorselseviyeler.Gorsev2"/>
+        <activity android:name="com.example.myapplication.Gorselseviyeler.Gorsev2" />
         <activity android:name="com.example.myapplication.Gorselseviyeler.Goseviye3"/>
         <activity android:name="com.example.myapplication.authentication.Giris"/>
         <activity android:name="com.example.myapplication.kelimeseviyeler.KelimeP1"/>
