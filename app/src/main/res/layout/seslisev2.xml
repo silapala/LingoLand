@@ -1,23 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/txtSeviye1"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Seviye 2: Sesli Pratik"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp"/>
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
 
-    <Button
-        android:id="@+id/btnGeri"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Geri Dön"/>
-</LinearLayout>
+        <TextView
+            android:id="@+id/txtSeviye1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seviye 2: Sesli Pratik"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Hedef cümleyi gösteren alan -->
+        <TextView
+            android:id="@+id/txtHedefCumle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I'm going to school."
+            android:textSize="20sp"
+            android:textStyle="italic"
+            android:layout_marginBottom="20dp" />
+
+        <Button
+            android:id="@+id/btnDinle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cümleyi Dinle"
+            android:layout_marginTop="10dp" />
+
+        <Button
+            android:id="@+id/btnKonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Konuş ve Kontrol Et"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/txtSonuc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp" />
+
+        <Button
+            android:id="@+id/btnGeri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Geri Dön"
+            android:layout_marginTop="30dp" />
+    </LinearLayout>
+</ScrollView>
