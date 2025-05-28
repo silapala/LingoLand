@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutCumleKur"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center_horizontal">
 
     <TextView
         android:id="@+id/txtSeviye2"
@@ -13,11 +14,34 @@
         android:text="Seviye 2: Cümle Kurma"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp" />
+
+    <LinearLayout
+        android:id="@+id/layoutKelimeHavuzu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="20dp" />
+
+    <LinearLayout
+        android:id="@+id/layoutCumleOlusan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/btnKontrolEt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kontrol Et" />
 
     <Button
         android:id="@+id/btnGeri"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Geri Dön"/>
+        android:text="Geri Dön"
+        android:layout_marginTop="20dp"/>
 </LinearLayout>
