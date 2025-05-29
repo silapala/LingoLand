@@ -25,7 +25,10 @@
         <color name="seviye3_rengi">#D500F9</color>
     <color name="card_background">#DDFB7F2C</color>
     <color name="red_200">#EF9A9A</color>
-
+    <color name="cardBackground">#FFF8E1</color>
+    <color name="titleColor">#FF5722</color>
+    <color name="descColor">#5D4037</color>
+    <color name="exampleColor">#3F51B5</color>
     <color name="orange_200">#FFCC80</color>
     <color name="green_200">#A5D6A7</color>
     <color name="blue_200">#90CAF9</color>
