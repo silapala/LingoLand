@@ -1,78 +1,170 @@
 package com.example.myapplication.sesliseviyeler
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
+import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
+import android.speech.SpeechRecognizer
 import android.speech.tts.TextToSpeech
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import com.example.myapplication.R
 import java.util.*
 
 class SesliSev1 : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private lateinit var tts: TextToSpeech
-    private val SPEECH_REQUEST_CODE = 100
-    private var lastSpokenWord: String = ""
+    private lateinit var speechRecognizer: SpeechRecognizer
+
+    private val RECORD_AUDIO_REQUEST_CODE = 101
+
+    private lateinit var wordTextView: TextView
+    private lateinit var soundButton: ImageButton
+    private lateinit var micButton: ImageButton
+    private lateinit var feedbackIcon: ImageView
+    private lateinit var descriptionText: TextView
+    private lateinit var maskotImage: ImageView
 
     private val wordList = listOf(
-        "Apple", "Banana", "Orange", "Cat", "Dog",
-        "Bird", "House", "Tree", "Sun", "Moon"
+        "apple", "banana", "orange", "cat", "dog",
+        "bird", "house", "tree", "sun", "moon"
     )
-    private val correctWords = mutableSetOf<String>()
 
-    private lateinit var wordListContainer: LinearLayout
-    private lateinit var progressText: TextView
+    private var currentWordIndex = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.sesli1)
+        setContentView(R.layout.sesli1)  // İlk verdiğin XML dosya adı
 
+        // View binding
+        wordTextView = findViewById(R.id.wordTextView)
+        soundButton = findViewById(R.id.soundButton)
+        micButton = findViewById(R.id.micButton)
+        feedbackIcon = findViewById(R.id.feedbackIcon)
+        descriptionText = findViewById(R.id.descriptionText)
+        maskotImage = findViewById(R.id.maskotImage)
+
+        feedbackIcon.visibility = View.GONE
+
+        // TTS başlat
         tts = TextToSpeech(this, this)
-        wordListContainer = findViewById(R.id.wordListContainer)
-        progressText = findViewById(R.id.txtProgress)
 
-        val btnGeri = findViewById<Button>(R.id.btnGeri)
-        btnGeri.setOnClickListener { finish() }
+        // SpeechRecognizer başlat
+        if (SpeechRecognizer.isRecognitionAvailable(this)) {
+            speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this)
+            speechRecognizer.setRecognitionListener(recognitionListener)
+        } else {
+            Toast.makeText(this, "Speech Recognition desteklenmiyor!", Toast.LENGTH_SHORT).show()
+            micButton.isEnabled = false
+        }
 
-        populateWordList()
-        updateProgress()
-    }
+        // İlk kelimeyi göster
+        showCurrentWord()
 
-    private fun populateWordList() {
-        wordList.forEach { word ->
-            val itemLayout = layoutInflater.inflate(R.layout.word_item_layout, wordListContainer, false)
+        soundButton.setOnClickListener {
+            speakCurrentWord()
+        }
 
-            val txtWord = itemLayout.findViewById<TextView>(R.id.txtWordItem)
-            val imgStatus = itemLayout.findViewById<ImageView>(R.id.imgStatusItem)
-            val txtFeedback = itemLayout.findViewById<TextView>(R.id.txtFeedbackItem)
-            val btnListen = itemLayout.findViewById<Button>(R.id.btnListenItem)
-            val btnSpeak = itemLayout.findViewById<Button>(R.id.btnSpeakItem)
-
-            txtWord.text = word
-
-            btnListen.setOnClickListener {
-                tts.speak(word, TextToSpeech.QUEUE_FLUSH, null, null)
-                lastSpokenWord = word
+        micButton.setOnClickListener {
+            // Ses kaydı izni var mı kontrol et
+            if (checkAudioPermission()) {
+                startListening()
+            } else {
+                requestAudioPermission()
             }
-
-            btnSpeak.setOnClickListener {
-                lastSpokenWord = word
-                val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
-                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
-                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.ENGLISH)
-                intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Lütfen '$word' kelimesini tekrar edin...")
-                startActivityForResult(intent, SPEECH_REQUEST_CODE)
-            }
-
-            itemLayout.tag = word // Tag ile erişim kolaylaşır
-            wordListContainer.addView(itemLayout)
         }
     }
 
-    private fun updateProgress() {
-        progressText.text = "İlerleme: ${correctWords.size}/${wordList.size}"
+    private fun showCurrentWord() {
+        val word = wordList[currentWordIndex]
+        wordTextView.text = word
+        feedbackIcon.visibility = View.GONE
+        descriptionText.text = "Lütfen kelimeyi doğru şekilde telaffuz edin."
+    }
+
+    private fun speakCurrentWord() {
+        val word = wordList[currentWordIndex]
+        tts.speak(word, TextToSpeech.QUEUE_FLUSH, null, null)
+    }
+
+    private fun checkAudioPermission(): Boolean {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED
+        } else {
+            true
+        }
+    }
+
+    private fun requestAudioPermission() {
+        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.RECORD_AUDIO), RECORD_AUDIO_REQUEST_CODE)
+    }
+
+    private fun startListening() {
+        val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
+            putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+            putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.ENGLISH)
+            putExtra(RecognizerIntent.EXTRA_PROMPT, "Lütfen kelimeyi söyleyin")
+        }
+        speechRecognizer.startListening(intent)
+        descriptionText.text = "Dinleniyor... Lütfen kelimeyi söyleyin."
+        micButton.isEnabled = false
+    }
+
+    private val recognitionListener = object : RecognitionListener {
+        override fun onReadyForSpeech(params: Bundle?) {}
+        override fun onBeginningOfSpeech() {}
+        override fun onRmsChanged(rmsdB: Float) {}
+        override fun onBufferReceived(buffer: ByteArray?) {}
+        override fun onEndOfSpeech() {
+            descriptionText.text = "Ses kaydı bitti, sonuç bekleniyor..."
+        }
+        override fun onError(error: Int) {
+            descriptionText.text = "Dinleme hatası. Lütfen tekrar deneyin."
+            micButton.isEnabled = true
+            feedbackIcon.visibility = View.GONE
+        }
+
+        override fun onResults(results: Bundle?) {
+            micButton.isEnabled = true
+            val matches = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
+            if (!matches.isNullOrEmpty()) {
+                val spokenText = matches[0].lowercase(Locale.ROOT).trim()
+                val expectedWord = wordList[currentWordIndex].lowercase(Locale.ROOT).trim()
+
+                if (spokenText == expectedWord) {
+                    // Doğru telaffuz
+                    feedbackIcon.setImageResource(R.drawable.ic_check) // Doğru ikonun
+                    feedbackIcon.visibility = View.VISIBLE
+                    descriptionText.text = "✅ Doğru! Harika."
+                    // Sonraki kelimeye geç
+                    currentWordIndex++
+                    if (currentWordIndex < wordList.size) {
+                        // Biraz gecikme ile sonraki kelimeyi göster
+                        wordTextView.postDelayed({ showCurrentWord() }, 1500)
+                    } else {
+                        descriptionText.text = "Tebrikler! Tüm kelimeler tamamlandı."
+                        micButton.isEnabled = false
+                        soundButton.isEnabled = false
+                    }
+                } else {
+                    // Yanlış telaffuz
+                    feedbackIcon.setImageResource(R.drawable.ic_cros) // Yanlış ikonun
+                    feedbackIcon.visibility = View.VISIBLE
+                    descriptionText.text = "❌ Yanlış, tekrar deneyin."
+                }
+            } else {
+                descriptionText.text = "Ses algılanamadı, lütfen tekrar deneyin."
+                feedbackIcon.visibility = View.GONE
+            }
+        }
+
+        override fun onPartialResults(partialResults: Bundle?) {}
+        override fun onEvent(eventType: Int, params: Bundle?) {}
     }
 
     override fun onInit(status: Int) {
@@ -83,35 +175,13 @@ class SesliSev1 : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == SPEECH_REQUEST_CODE && resultCode == RESULT_OK) {
-            val result = data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
-            val spokenText = result?.get(0)?.lowercase(Locale.ROOT)?.trim()
-            val currentWord = lastSpokenWord.lowercase(Locale.ROOT)
-
-            val itemLayout = wordListContainer.findViewWithTag<LinearLayout>(lastSpokenWord)
-            val imgStatus = itemLayout.findViewById<ImageView>(R.id.imgStatusItem)
-            val txtFeedback = itemLayout.findViewById<TextView>(R.id.txtFeedbackItem)
-
-            if (spokenText == currentWord) {
-                correctWords.add(lastSpokenWord)
-                imgStatus.setImageResource(android.R.drawable.ic_menu_send)
-                txtFeedback.text = "✅ Harika!"
-                txtFeedback.setTextColor(getColor(R.color.seviye2_rengi))
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == RECORD_AUDIO_REQUEST_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                startListening()
             } else {
-                imgStatus.setImageResource(android.R.drawable.ic_delete)
-                txtFeedback.text = "❌ Tekrar deneyin"
-                txtFeedback.setTextColor(getColor(R.color.seviye1_rengi))
-            }
-
-            imgStatus.visibility = View.VISIBLE
-            txtFeedback.visibility = View.VISIBLE
-            updateProgress()
-
-            if (correctWords.size == wordList.size) {
-                Toast.makeText(this, "Tebrikler! Tüm kelimeleri doğru telaffuz ettiniz!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Mikrofon izni gerekli!", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -120,6 +190,9 @@ class SesliSev1 : AppCompatActivity(), TextToSpeech.OnInitListener {
         if (::tts.isInitialized) {
             tts.stop()
             tts.shutdown()
+        }
+        if (::speechRecognizer.isInitialized) {
+            speechRecognizer.destroy()
         }
         super.onDestroy()
     }

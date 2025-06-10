@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
+import com.example.myapplication.sesliseviyeler.Ses2
 
 class SesliPratik: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
