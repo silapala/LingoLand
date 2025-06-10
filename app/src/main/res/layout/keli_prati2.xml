@@ -1,73 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF3E0">  <!-- Sıcak, çocuk dostu bir arka plan -->
+    android:background="#FFF"
+    android:padding="16dp">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/imgMaskot"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:src="@drawable/gorsel1"
+        android:contentDescription="Maskot" />
+
+    <TextView
+        android:id="@+id/txtMaskotAciklama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:gravity="center_horizontal">
+        android:text="Haydi kelimeleri doğru şekilde kategorilere ayıralım! Özne, yüklem ve nesneyi seç 😊"
+        android:textColor="#333"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_marginTop="8dp" />
 
-        <ImageView
-            android:id="@+id/imgMaskot"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/gorsel1"
-            android:contentDescription="Maskot"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp" />
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerKelime"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"/>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:layout_marginHorizontal="8dp"
-            android:elevation="8dp">
-
-            <TextView
-                android:id="@+id/txtAciklama"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Kelimelere tıkla ve hangi kategoriye ait olduklarını seç!\n✅ Doğruysa yeşil olacak\n❌ Yanlışsa kırmızı olacak"
-                android:textSize="18sp"
-                android:textColor="#5D4037"
-                android:textAlignment="center"
-                android:padding="16dp"
-                android:background="#FFFFFF" />
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/txtSeviye2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="✨ Seviye 2: Kelime Pratiği ✨"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="#FF6F00"
-            android:layout_marginBottom="24dp"
-            android:background="@android:color/transparent" />
-
-        <GridLayout
-            android:id="@+id/gridKelimeler"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:columnCount="2"
-            android:alignmentMode="alignMargins"
-            android:padding="8dp"
-            android:layout_marginBottom="24dp" />
-
-        <Button
-            android:id="@+id/btnGeri"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:text="🔙 Geri Dön"
-            android:textSize="18sp"
-            android:backgroundTint="#FF7043"
-            android:textColor="@android:color/white"
-            android:paddingHorizontal="32dp"
-            android:elevation="8dp" />
-    </LinearLayout>
-</ScrollView>
+    <Button
+        android:id="@+id/btnGeri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Geri Dön"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"/>
+</LinearLayout>

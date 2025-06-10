@@ -1,11 +1,12 @@
 package com.example.myapplication.kelimeseviyeler
-
-import android.graphics.Color
 import android.os.Bundle
-import android.view.Gravity
-import android.widget.*
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager2.widget.ViewPager2
 import com.example.myapplication.R
+import com.example.myapplication.kelimeseviyeler.KelimePagerAdapter
 
 class KeliPrati2 : AppCompatActivity() {
 
@@ -14,57 +15,40 @@ class KeliPrati2 : AppCompatActivity() {
         setContentView(R.layout.keli_prati2)
 
         val btnGeri = findViewById<Button>(R.id.btnGeri)
-        val gridLayout = findViewById<GridLayout>(R.id.gridKelimeler)
-
         btnGeri.setOnClickListener { finish() }
 
-        val kelimeListesi = listOf(
-            Triple("Ali", "özne", "#F48FB1"),       // pembe
-            Triple("Ayşe", "özne", "#9575CD"),      // mor
-            Triple("apples", "nesne", "#4DB6AC"),   // turkuaz
-            Triple("book", "nesne", "#FFD54F"),     // sarı
-            Triple("ate", "yüklem", "#FF8A65"),     // turuncu
-            Triple("read", "yüklem", "#81C784")     // yeşil
+        val viewPager = findViewById<ViewPager2>(R.id.viewPagerKelime)
+
+        val sayfalar = listOf(
+            listOf(
+                Triple("banana", "muz", "nesne"),
+                Triple("drink", "içmek", "yüklem"),
+                Triple("Tom", "Tom", "özne"),
+                Triple("milk", "süt", "nesne"),
+                Triple("dance", "dans etmek", "yüklem"),
+                Triple("Sarah", "Sarah", "özne")
+            ),
+            listOf(
+                Triple("bread", "ekmek", "nesne"),
+                Triple("run", "koşmak", "yüklem"),
+                Triple("Emma", "Emma", "özne"),
+                Triple("apple", "elma", "nesne"),
+                Triple("sleep", "uyumak", "yüklem"),
+                Triple("John", "John", "özne")
+            ),
+            listOf(
+                Triple("book", "kitap", "nesne"),
+                Triple("read", "okumak", "yüklem"),
+                Triple("Ali", "Ali", "özne"),
+                Triple("pencil", "kalem", "nesne"),
+                Triple("write", "yazmak", "yüklem"),
+                Triple("Ayşe", "Ayşe", "özne")
+            )
         )
 
-        for ((kelime, kategoriDogru, arkaPlanRenk) in kelimeListesi) {
-            val kelimeKutusu = TextView(this).apply {
-                text = kelime
-                textSize = 20f
-                setTextColor(Color.WHITE)
-                setBackgroundColor(Color.parseColor(arkaPlanRenk))
-                gravity = Gravity.CENTER
-                setPadding(32, 32, 32, 32)
-                setOnClickListener { view ->
-                    val popup = PopupMenu(this@KeliPrati2, view)
-                    popup.menu.add("Özne")
-                    popup.menu.add("Nesne")
-                    popup.menu.add("Yüklem")
+        viewPager.adapter = KelimePagerAdapter(this, sayfalar)
 
-                    popup.setOnMenuItemClickListener { item ->
-                        val secilen = item.title.toString().lowercase()
-                        if (secilen == kategoriDogru) {
-                            setBackgroundColor(Color.parseColor("#A5D6A7")) // yeşil
-                            text = "$kelime ✅"
-                        } else {
-                            setBackgroundColor(Color.parseColor("#EF9A9A")) // kırmızı
-                            text = "$kelime ❌\n(Tekrar Dene)"
-                        }
-                        true
-                    }
-
-                    popup.show()
-                }
-
-                val params = GridLayout.LayoutParams().apply {
-                    width = 300
-                    height = 300
-                    setMargins(24, 24, 24, 24)
-                }
-                layoutParams = params
-            }
-
-            gridLayout.addView(kelimeKutusu)
-        }
+        // Maskot açıklaması zaten XML'de var
     }
 }
+
