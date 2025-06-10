@@ -61,7 +61,7 @@ class RenklerActivity: AppCompatActivity(), TextToSpeech.OnInitListener {
         wordList = listOf(
             WordCard(R.drawable.renk1, "Red"),
             WordCard(R.drawable.renk2, "Blue"),
-            WordCard(R.drawable.renk3, "Yellow"),
+            WordCard(R.drawable.renk3, "Green"),
             WordCard(R.drawable.renk4, "Pink"),
             WordCard(R.drawable.renk5, "Black"),
             WordCard(R.drawable.renk6, "White"),

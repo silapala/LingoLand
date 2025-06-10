@@ -34,7 +34,7 @@ class Gorsel : AppCompatActivity() {
         }
 
         btnSeviye3.setOnClickListener { v: View? ->
-            val intent = Intent(this@Gorsel, Goseviye3::class.java)
+            val intent = Intent(this@Gorsel, GoSeviye3::class.java)
             startActivity(intent)
         }
     }
