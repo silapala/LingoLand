@@ -49,6 +49,7 @@
         <activity android:name="com.example.myapplication.Gorselseviyeler.EvEsyalariActivity"/>
         <activity android:name="com.example.myapplication.temeldil.OzneActivity"/>
         <activity android:name="com.example.myapplication.temeldil.NesneActivity"/>
+        <activity android:name=".authentication.UserAccount"/>
         <activity android:name=".temeldil.YuklemActivity" />
         <activity android:name=".temeldil.SifatActivity" />
         <activity android:name=".authentication.SignUpActivity" />

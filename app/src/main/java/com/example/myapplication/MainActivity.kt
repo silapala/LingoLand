@@ -14,20 +14,20 @@ import com.example.myapplication.authentication.Giris
 import com.example.myapplication.cumleseviyeler.CumleKurma
 import com.example.myapplication.kelimeseviyeler.KelimePratik
 import com.example.myapplication.sesliseviyeler.SesliPratik
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.auth.ktx.auth
 
 lateinit var auth: FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Firebase auth başlat
         auth = Firebase.auth
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val gorselCard = findViewById<LinearLayout>(R.id.cardGorsel)
+        val gorselCard  = findViewById<LinearLayout>(R.id.cardGorsel)
         val kelimeCard = findViewById<LinearLayout>(R.id.cardKelime)
         val cumleCard = findViewById<LinearLayout>(R.id.cardCumle)
         val sesliCard = findViewById<LinearLayout>(R.id.cardSesli)
@@ -56,6 +56,9 @@ class MainActivity : AppCompatActivity() {
         avatarImage.setOnClickListener { view ->
             showUserMenu(view)
         }
+
+        // Burada avatarı yükle
+        loadUserAvatar(avatarImage)
     }
 
     private fun showUserMenu(view: View) {
@@ -64,7 +67,8 @@ class MainActivity : AppCompatActivity() {
         popupMenu.setOnMenuItemClickListener { item: MenuItem ->
             when (item.itemId) {
                 R.id.menu_hesabim -> {
-                    Toast.makeText(this, "Hesabım sayfası yakında", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, com.example.myapplication.authentication.UserAccount::class.java)
+                    startActivity(intent)
                     true
                 }
                 R.id.menu_cikis -> {
@@ -82,11 +86,25 @@ class MainActivity : AppCompatActivity() {
 
     public override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if (currentUser == null) {
             val intent = Intent(this, Giris::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun loadUserAvatar(avatarImage: ImageView) {
+        val userID = auth.currentUser?.uid ?: return
+        val db = FirebaseFirestore.getInstance()
+
+        db.collection("users").document(userID).get()
+            .addOnSuccessListener { document ->
+                val avatarName = document.getString("avatar") ?: "user_avatar_placeholder"
+                val resID = resources.getIdentifier(avatarName, "drawable", packageName)
+                avatarImage.setImageResource(resID)
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Avatar yüklenemedi", Toast.LENGTH_SHORT).show()
+            }
     }
 }
