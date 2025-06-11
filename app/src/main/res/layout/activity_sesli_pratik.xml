@@ -4,9 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteh"
+    android:background="@drawable/bg_card_ses"
     tools:context=".Gorselseviyeler.Gorsel">
-
+    <Button
+        android:id="@+id/btnGerii"
+        android:layout_width="75dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/ses1"
+        android:text="Geri Dön"
+        android:textSize="12sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="11dp" />
 
     <ImageView
         android:id="@+id/img_seviye1"
@@ -154,11 +163,10 @@
         android:src="@drawable/seviye12"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042" />
-
+        app:layout_constraintVertical_bias="0.442" />
 
     <ImageView
         android:id="@+id/img_seviye13"
@@ -216,7 +224,7 @@
         android:layout_width="236dp"
         android:layout_height="58dp"
         android:layout_marginTop="50dp"
-        android:background="@color/purple_200"
+        android:backgroundTint="@color/ses1"
         android:text="Seviye 1"
         app:layout_constraintBottom_toTopOf="@+id/btn_seviye2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -229,7 +237,7 @@
         android:id="@+id/btn_seviye2"
         android:layout_width="236dp"
         android:layout_height="58dp"
-        android:background="@color/seviye2_rengi"
+        android:backgroundTint="@color/ses1"
         android:text="Seviye 2"
         app:layout_constraintBottom_toTopOf="@+id/btn_seviye3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -242,7 +250,7 @@
         android:id="@+id/btn_seviye3"
         android:layout_width="236dp"
         android:layout_height="58dp"
-        android:background="@color/seviye3_rengi"
+        android:backgroundTint="@color/ses1"
         android:text="Seviye 3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

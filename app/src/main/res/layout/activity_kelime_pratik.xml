@@ -4,10 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_700"
+    android:background="@drawable/bg_card_kelime"
     tools:context=".Gorselseviyeler.Gorsel">
+    <Button
+        android:id="@+id/btnGerii"
+        android:layout_width="75dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/green_2"
+        android:text="Geri Dön"
+        android:textSize="12sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="11dp" />
 
-    <!-- Seviye 1 Görsel -->
+
     <ImageView
         android:id="@+id/img_seviye1"
         android:layout_width="52dp"
@@ -16,14 +26,11 @@
         android:src="@drawable/seviye1"
         app:layout_constraintBottom_toTopOf="@+id/btn_seviye1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.623"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <!-- Seviye 4 Görsel -->
-
-    <!-- Seviye 2 Görsel -->
     <ImageView
         android:id="@+id/img_seviye4"
         android:layout_width="52dp"
@@ -48,9 +55,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.699" />
 
-    <!-- Seviye 3 Görsel -->
 
-    <!-- Seviye 5 Görsel -->
     <ImageView
         android:id="@+id/img_seviye3"
         android:layout_width="55dp"
@@ -75,9 +80,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.942" />
 
-    <!-- Seviye 6 Görsel -->
 
-    <!-- Seviye 7 Görsel -->
     <ImageView
         android:id="@+id/img_seviye6"
         android:layout_width="52dp"
@@ -101,7 +104,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.46" />
 
-    <!-- Seviye 8 Görsel -->
+
     <ImageView
         android:id="@+id/img_seviye8"
         android:layout_width="52dp"
@@ -114,9 +117,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.865" />
 
-    <!-- Seviye 9 Görsel -->
 
-    <!-- Seviye 10 Görsel -->
     <ImageView
         android:id="@+id/img_seviye9"
         android:layout_width="52dp"
@@ -141,7 +142,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.734" />
 
-    <!-- Seviye 11 Görsel -->
+
     <ImageView
         android:id="@+id/img_seviye11"
         android:layout_width="52dp"
@@ -154,7 +155,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.346" />
 
-    <!-- Seviye 12 Görsel -->
     <ImageView
         android:id="@+id/img_seviye12"
         android:layout_width="52dp"
@@ -162,12 +162,11 @@
         android:src="@drawable/seviye12"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintHorizontal_bias="0.356"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042" />
+        app:layout_constraintVertical_bias="0.094" />
 
-    <!-- Seviye 13 Görsel -->
     <ImageView
         android:id="@+id/img_seviye13"
         android:layout_width="52dp"
@@ -179,9 +178,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.926" />
 
-    <!-- Seviye 14 Görsel -->
 
-    <!-- Seviye 15 Görsel -->
     <ImageView
         android:id="@+id/img_seviye14"
         android:layout_width="52dp"
@@ -206,7 +203,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.098" />
 
-    <!-- Seviye 16 Görsel -->
+
     <ImageView
         android:id="@+id/img_seviye16"
         android:layout_width="52dp"
@@ -219,14 +216,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.346" />
 
-    <!-- Butonlar -->
+
 
     <Button
         android:id="@+id/btn_seviye1"
         android:layout_width="236dp"
         android:layout_height="58dp"
         android:layout_marginTop="50dp"
-        android:background="@color/purple_200"
+        android:backgroundTint="@color/green_2"
         android:text="Seviye 1"
         app:layout_constraintBottom_toTopOf="@+id/btn_seviye2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -239,7 +236,7 @@
         android:id="@+id/btn_seviye2"
         android:layout_width="236dp"
         android:layout_height="58dp"
-        android:background="@color/seviye2_rengi"
+        android:backgroundTint="@color/green_2"
         android:text="Seviye 2"
         app:layout_constraintBottom_toTopOf="@+id/btn_seviye3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -252,7 +249,7 @@
         android:id="@+id/btn_seviye3"
         android:layout_width="236dp"
         android:layout_height="58dp"
-        android:background="@color/seviye3_rengi"
+        android:backgroundTint="@color/green_2"
         android:text="Seviye 3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -10,6 +10,7 @@
     <color name="whiteh">#DE783A</color>
     <color name="whitehi">#CA5EDC</color>
     <color name="whito">#822BB6</color>
+    <color name="whitos">#969534D1</color>
     <color name="circleBackground">#FFE800</color>
     <color name="colorBacakground">#6097F2</color>
     <color name="colorBackground">#FDFDFD</color>
@@ -21,7 +22,8 @@
         <color name="colorPrimary">#1976D2</color>
 <color name="kartback">#5EEF9E9E</color>
         <color name="seviye1_rengi">#FF5733</color>
-        <color name="seviye2_rengi">#33FF57</color>
+    <color name="ses1">#6FEBA777</color>
+    <color name="seviye2_rengi">#33FF57</color>
         <color name="seviye3_rengi">#D500F9</color>
     <color name="card_background">#DDFB7F2C</color>
     <color name="red_200">#EF9A9A</color>
@@ -31,7 +33,9 @@
     <color name="exampleColor">#3F51B5</color>
     <color name="orange_200">#FFCC80</color>
     <color name="green_200">#A5D6A7</color>
+    <color name="green_2">#D090D193</color>
     <color name="blue_200">#90CAF9</color>
+    <color name="blue_n">#6E90CAF9</color>
     <color name="yellow_200">#FFF59D</color>
 
 </resources>
