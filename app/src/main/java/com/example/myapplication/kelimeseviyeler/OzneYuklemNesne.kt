@@ -4,8 +4,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.DragEvent
 import android.view.View
-import android.view.View.OnDragListener
-import android.view.View.OnLongClickListener
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -19,26 +17,17 @@ class OzneYuklemNesne : AppCompatActivity() {
     private lateinit var kutuYuklem: LinearLayout
     private lateinit var kutuNesne: LinearLayout
     private lateinit var layoutKelimeKutusu: LinearLayout
+
     private val kelimeler = listOf(
         Triple("I", "am", "happy"),
         Triple("She", "likes", "music"),
         Triple("They", "play", "football")
     )
 
-    private val ozneRenk = "#FFF59D"
-    private val yuklemRenk = "#90CAF9"
-    private val nesneRenk = "#A5D6A7"
-
     private val dogruEslesme = mapOf(
-        "I" to "Özne",
-        "am" to "Yüklem",
-        "happy" to "Nesne",
-        "She" to "Özne",
-        "likes" to "Yüklem",
-        "music" to "Nesne",
-        "They" to "Özne",
-        "play" to "Yüklem",
-        "football" to "Nesne"
+        "I" to "Özne", "am" to "Yüklem", "happy" to "Nesne",
+        "She" to "Özne", "likes" to "Yüklem", "music" to "Nesne",
+        "They" to "Özne", "play" to "Yüklem", "football" to "Nesne"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,51 +38,49 @@ class OzneYuklemNesne : AppCompatActivity() {
         kutuYuklem = findViewById(R.id.kutuYuklem)
         kutuNesne = findViewById(R.id.kutuNesne)
         layoutKelimeKutusu = findViewById(R.id.layoutKelimeKutusu)
+
         val btnKontrol = findViewById<Button>(R.id.btnKontrol)
         val btnGeri = findViewById<Button>(R.id.btnGeri)
-
         btnGeri.setOnClickListener { finish() }
 
-        // Tüm kelimeleri topla (3 cümle için)
         val tumKelimeler = kelimeler.flatMap { listOf(it.first, it.second, it.third) }.shuffled()
-
-        // Kelimeleri TextView olarak oluştur ve layoutKelimeKutusu'na ekle
         for (kelime in tumKelimeler) {
-            val tv = TextView(this).apply {
-                text = kelime
-                textSize = 22f
-                setBackgroundColor(Color.parseColor("#FFCCBC"))
-                setTextColor(Color.BLACK)
-                setPadding(20, 20, 20, 20)
-                setOnLongClickListener(longClickListener)
-                tag = kelime
-                val params = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-                )
-                params.setMargins(16, 16, 16, 16)
-                layoutParams = params
-            }
-            layoutKelimeKutusu.addView(tv)
+            layoutKelimeKutusu.addView(createKelimeTextView(kelime))
         }
 
-        val dragListener = dragListener()
-        kutuOzne.setOnDragListener(dragListener)
-        kutuYuklem.setOnDragListener(dragListener)
-        kutuNesne.setOnDragListener(dragListener)
+        val listener = dragListener()
+        kutuOzne.setOnDragListener(listener)
+        kutuYuklem.setOnDragListener(listener)
+        kutuNesne.setOnDragListener(listener)
 
-        btnKontrol.setOnClickListener {
-            kontrolEt()
+        btnKontrol.setOnClickListener { kontrolEt() }
+    }
+
+    private fun createKelimeTextView(kelime: String): TextView {
+        return TextView(this).apply {
+            text = kelime
+            textSize = 22f
+            setBackgroundColor(Color.parseColor("#FFCCBC"))
+            setTextColor(Color.BLACK)
+            setPadding(20, 20, 20, 20)
+            tag = kelime
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            ).apply {
+                setMargins(16, 16, 16, 16)
+            }
+            setOnLongClickListener(longClickListener)
         }
     }
 
-    private val longClickListener = OnLongClickListener { v ->
+    private val longClickListener = View.OnLongClickListener { v ->
         val shadow = View.DragShadowBuilder(v)
         v.startDragAndDrop(null, shadow, v, 0)
         true
     }
 
-    private fun dragListener() = OnDragListener { v, event ->
+    private fun dragListener() = View.OnDragListener { v, event ->
         when (event.action) {
             DragEvent.ACTION_DROP -> {
                 val draggedView = event.localState as TextView
@@ -101,60 +88,74 @@ class OzneYuklemNesne : AppCompatActivity() {
                 parent.removeView(draggedView)
 
                 val hedefKutu = v as LinearLayout
-                hedefKutu.addView(draggedView)
-                draggedView.setBackgroundColor(
-                    when (hedefKutu.id) {
-                        R.id.kutuOzne -> Color.parseColor("#FFF59D")
-                        R.id.kutuYuklem -> Color.parseColor("#90CAF9")
-                        R.id.kutuNesne -> Color.parseColor("#A5D6A7")
-                        else -> Color.LTGRAY
+                if (!containsKelime(hedefKutu, draggedView.text.toString())) {
+                    hedefKutu.addView(draggedView)
+                    val renk = when (hedefKutu.id) {
+                        R.id.kutuOzne -> "#FFF59D"
+                        R.id.kutuYuklem -> "#90CAF9"
+                        R.id.kutuNesne -> "#A5D6A7"
+                        else -> "#CCCCCC"
                     }
-                )
-                draggedView.x = event.x
-                draggedView.y = event.y
+                    draggedView.setBackgroundColor(Color.parseColor(renk))
+                } else {
+                    parent.addView(draggedView)
+                }
                 draggedView.visibility = View.VISIBLE
-                return@OnDragListener true
+                true
             }
             else -> true
         }
     }
 
-    private fun kontrolEt() {
-        val ozneKelime = (kutuOzne.getChildAt(1) as? TextView)?.text?.toString()
-        val yuklemKelime = (kutuYuklem.getChildAt(1) as? TextView)?.text?.toString()
-        val nesneKelime = (kutuNesne.getChildAt(1) as? TextView)?.text?.toString()
+    private fun containsKelime(kutu: LinearLayout, kelime: String): Boolean {
+        for (i in 0 until kutu.childCount) {
+            val child = kutu.getChildAt(i)
+            if (child is TextView && child.text == kelime) {
+                return true
+            }
+        }
+        return false
+    }
 
-        if (ozneKelime == null || yuklemKelime == null || nesneKelime == null) {
-            Toast.makeText(this, "Lütfen her kutuya bir kelime bırak!", Toast.LENGTH_SHORT).show()
-            return
+    private fun kontrolEt() {
+        val yanlisOzne = mutableListOf<TextView>()
+        val yanlisYuklem = mutableListOf<TextView>()
+        val yanlisNesne = mutableListOf<TextView>()
+
+        var tumDogru = true
+
+        for (i in 0 until kutuOzne.childCount) {
+            val v = kutuOzne.getChildAt(i) as? TextView
+            if (v != null && dogruEslesme[v.text.toString()] != "Özne") {
+                yanlisOzne.add(v)
+                tumDogru = false
+            }
         }
 
-        val dogruOznelimi = dogruEslesme[ozneKelime] == "Özne"
-        val dogruYuklemlimi = dogruEslesme[yuklemKelime] == "Yüklem"
-        val dogruNesnelimi = dogruEslesme[nesneKelime] == "Nesne"
+        for (i in 0 until kutuYuklem.childCount) {
+            val v = kutuYuklem.getChildAt(i) as? TextView
+            if (v != null && dogruEslesme[v.text.toString()] != "Yüklem") {
+                yanlisYuklem.add(v)
+                tumDogru = false
+            }
+        }
 
-        if (dogruOznelimi && dogruYuklemlimi && dogruNesnelimi) {
+        for (i in 0 until kutuNesne.childCount) {
+            val v = kutuNesne.getChildAt(i) as? TextView
+            if (v != null && dogruEslesme[v.text.toString()] != "Nesne") {
+                yanlisNesne.add(v)
+                tumDogru = false
+            }
+        }
+
+        if (tumDogru) {
             Toast.makeText(this, "Tebrikler! Doğru sıralama yaptın.", Toast.LENGTH_LONG).show()
         } else {
             Toast.makeText(this, "Yanlış eşleşme, lütfen tekrar dene.", Toast.LENGTH_LONG).show()
-            // Yanlış olan kelimeleri kutulardan çıkar ve kelime kutusuna geri ekle
-            if (!dogruOznelimi) {
-                val tv = kutuOzne.getChildAt(1) as TextView
-                kutuOzne.removeView(tv)
-                layoutKelimeKutusu.addView(tv)
+            listOf(yanlisOzne, yanlisYuklem, yanlisNesne).flatten().forEach { tv ->
+                (tv.parent as? LinearLayout)?.removeView(tv)
                 tv.setBackgroundColor(Color.parseColor("#FFCCBC"))
-            }
-            if (!dogruYuklemlimi) {
-                val tv = kutuYuklem.getChildAt(1) as TextView
-                kutuYuklem.removeView(tv)
                 layoutKelimeKutusu.addView(tv)
-                tv.setBackgroundColor(Color.parseColor("#FFCCBC"))
-            }
-            if (!dogruNesnelimi) {
-                val tv = kutuNesne.getChildAt(1) as TextView
-                kutuNesne.removeView(tv)
-                layoutKelimeKutusu.addView(tv)
-                tv.setBackgroundColor(Color.parseColor("#FFCCBC"))
             }
         }
     }
