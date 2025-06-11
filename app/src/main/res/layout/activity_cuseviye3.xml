@@ -1,23 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/txtSeviye3"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/layout_cumleler"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Seviye 3: Cümle Kurma"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp"/>
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <Button
-        android:id="@+id/btnGeri"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Geri Dön"/>
-</LinearLayout>
+        <!-- Başlık -->
+        <TextView
+            android:id="@+id/txtSeviye3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seviye 3: Cümle Kurma"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Maskot ve Konuşma -->
+        <ImageView
+            android:id="@+id/maskotImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/gorsel3"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/maskotYazi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cümle kurmaya hazırsın, hadi başlayalım!"
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="center" />
+
+
+
+        <!-- Geri Butonu -->
+        <Button
+            android:id="@+id/btnGeri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Geri Dön"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp" />
+
+    </LinearLayout>
+</ScrollView>

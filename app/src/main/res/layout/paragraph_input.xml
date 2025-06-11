@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/txtTurkceCumle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ali okula gidiyor"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editIngilizce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="İngilizcesini yaz"
+        android:layout_marginTop="8dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/btnKontrolEt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kontrol Et" />
+
+        <Button
+            android:id="@+id/btnYenidenDene"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yeniden Dene"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtSonuc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="16sp"
+        android:layout_marginTop="8dp" />
+</LinearLayout>
