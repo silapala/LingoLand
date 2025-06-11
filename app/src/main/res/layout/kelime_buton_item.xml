@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/btnKelime"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    android:backgroundTint="@color/blue_200"
+    android:textColor="#000"
+    android:textSize="18sp"
+    android:padding="12dp"
+    android:gravity="center"
+    android:minHeight="48dp" />

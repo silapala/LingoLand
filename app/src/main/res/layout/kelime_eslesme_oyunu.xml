@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#FFFDE7"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Maskot ve Başlık -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingBottom="16dp">
+
+        <ImageView
+            android:id="@+id/imgMaskot"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/gorsel1"
+        android:contentDescription="Maskot" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Doğru Kelimeleri Eşleştir"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#333"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
+    <!-- Kelimeler ve eşleştirme alanı yatay bölme -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:weightSum="2"
+        android:divider="@android:color/darker_gray"
+        android:showDividers="middle">
+
+        <!-- İngilizce kelimeler -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="İngilizce Kelimeler"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#555" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvIngilizce"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <!-- Türkçe kelimeler -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Türkçe Anlamları"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#555" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTurkce"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Sayfa değiştirici -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="12dp" />
+
+    <!-- Kontrol ve Geri Butonları -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btnGeri"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:text="Geri"
+            android:backgroundTint="#E57373"
+            android:textColor="#FFF"
+            android:textSize="18sp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_card_blue" />
+
+        <Button
+            android:id="@+id/btnKontrol"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:text="Kontrol Et"
+            android:backgroundTint="#81C784"
+            android:textColor="#FFF"
+            android:textSize="18sp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_card_green" />
+    </LinearLayout>
+
+</LinearLayout>

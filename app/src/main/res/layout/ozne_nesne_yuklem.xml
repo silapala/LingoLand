@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E3F2FD"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/imgMaskot"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/gorsel1"
+            android:contentDescription="Maskot"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/txtAciklama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kelimeleri sürükleyerek Özne (sarı), Yüklem (mavi) ve Nesne (yeşil) kutularına bırak!"
+            android:textSize="18sp"
+            android:textColor="#0D47A1"
+            android:textAlignment="center"
+            android:padding="12dp"
+            android:background="#FFFFFF"
+            android:layout_marginBottom="24dp" />
+
+        <LinearLayout
+            android:id="@+id/layoutKutular"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_marginBottom="24dp">
+
+            <LinearLayout
+                android:id="@+id/kutuOzne"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFF59D"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp"
+                android:layout_margin="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Özne"
+                    android:textSize="18sp"
+                    android:textColor="#5D4037" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/kutuYuklem"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#90CAF9"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp"
+                android:layout_margin="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yüklem"
+                    android:textSize="18sp"
+                    android:textColor="#0D47A1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/kutuNesne"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#A5D6A7"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp"
+                android:layout_margin="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nesne"
+                    android:textSize="18sp"
+                    android:textColor="#2E7D32" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutKelimeKutusu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/btnKontrol"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Kontrol Et"
+            android:textSize="20sp"
+            android:backgroundTint="#1976D2"
+            android:textColor="#FFFFFF"
+            android:elevation="8dp"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/btnGeri"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="🔙 Geri Dön"
+            android:textSize="18sp"
+            android:backgroundTint="#FF7043"
+            android:textColor="#FFFFFF"
+            android:paddingHorizontal="32dp"
+            android:elevation="8dp" />
+
+    </LinearLayout>
+</ScrollView>

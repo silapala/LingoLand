@@ -52,6 +52,8 @@
         <activity android:name=".temeldil.YuklemActivity" />
         <activity android:name=".temeldil.SifatActivity" />
         <activity android:name=".authentication.SignUpActivity" />
+        <activity android:name=".kelimeseviyeler.KelimeEslesmeOyunu"/>
+        <activity android:name=".kelimeseviyeler.OzneYuklemNesne"/>
 
     </application>
 
