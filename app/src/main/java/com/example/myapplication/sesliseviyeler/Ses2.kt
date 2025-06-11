@@ -27,7 +27,16 @@ class Ses2 : AppCompatActivity() {
     private lateinit var recognizer: SpeechRecognizer
     private lateinit var micIntent: Intent
     private lateinit var micButton: ImageButton
-    private var currentWord = "apple"
+
+    private val sentenceList = listOf(
+        "I like apples.",
+        "She is my friend.",
+        "We are going to the park.",
+        "It is raining today.",
+        "This is a cat."
+    )
+    private var currentIndex = 0
+    private var currentSentence = sentenceList[currentIndex]
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,9 +47,8 @@ class Ses2 : AppCompatActivity() {
         val soundButton = findViewById<ImageButton>(R.id.soundButton)
         micButton = findViewById(R.id.micButton)
 
-        wordTextView.text = currentWord
+        wordTextView.text = currentSentence
 
-        // TTS kurulumu
         tts = TextToSpeech(this) { status ->
             if (status == TextToSpeech.SUCCESS) {
                 tts.language = Locale.ENGLISH
@@ -48,13 +56,11 @@ class Ses2 : AppCompatActivity() {
         }
 
         soundButton.setOnClickListener {
-            tts.speak(currentWord, TextToSpeech.QUEUE_FLUSH, null, null)
+            tts.speak(currentSentence, TextToSpeech.QUEUE_FLUSH, null, null)
         }
 
-        // Mikrofon izni kontrolü
         checkAudioPermission()
 
-        // Cihazda STT destekleniyor mu kontrolü
         if (!SpeechRecognizer.isRecognitionAvailable(this)) {
             Toast.makeText(this, "Bu cihaz konuşma tanımayı desteklemiyor!", Toast.LENGTH_LONG).show()
             return
@@ -68,42 +74,52 @@ class Ses2 : AppCompatActivity() {
 
         micButton.setOnClickListener {
             feedbackIcon.visibility = View.GONE
-            micButton.setColorFilter(Color.RED) // Kırmızı: Dinleniyor
+            micButton.setColorFilter(Color.RED)
             recognizer.startListening(micIntent)
         }
 
         recognizer.setRecognitionListener(object : RecognitionListener {
             override fun onResults(results: Bundle?) {
-                micButton.clearColorFilter() // Renk sıfırla
+                micButton.clearColorFilter()
                 val matches = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
-                val spokenWord = matches?.firstOrNull()?.lowercase(Locale.ROOT)
-                if (spokenWord == currentWord.lowercase(Locale.ROOT)) {
+                val spokenText = matches?.firstOrNull()?.lowercase(Locale.ROOT)
+                if (spokenText == currentSentence.lowercase(Locale.ROOT)) {
                     feedbackIcon.setImageResource(R.drawable.ic_check)
+                    feedbackIcon.visibility = View.VISIBLE
+                    moveToNextSentence()
                 } else {
                     feedbackIcon.setImageResource(R.drawable.ic_cros)
+                    feedbackIcon.visibility = View.VISIBLE
                 }
-                feedbackIcon.visibility = View.VISIBLE
             }
 
             override fun onError(error: Int) {
-                micButton.clearColorFilter() // Renk sıfırla
+                micButton.clearColorFilter()
                 Toast.makeText(this@Ses2, "Hata: Konuşma algılanamadı", Toast.LENGTH_SHORT).show()
             }
 
-            override fun onReadyForSpeech(params: Bundle?) {
-                // Ekstra görsel bilgi verilebilir
-            }
-
+            override fun onReadyForSpeech(params: Bundle?) {}
             override fun onBeginningOfSpeech() {}
             override fun onRmsChanged(rmsdB: Float) {}
             override fun onBufferReceived(buffer: ByteArray?) {}
             override fun onEndOfSpeech() {
-                micButton.clearColorFilter() // Dinleme bitti
+                micButton.clearColorFilter()
             }
 
             override fun onPartialResults(partialResults: Bundle?) {}
             override fun onEvent(eventType: Int, params: Bundle?) {}
         })
+    }
+
+    private fun moveToNextSentence() {
+        if (currentIndex < sentenceList.size - 1) {
+            currentIndex++
+            currentSentence = sentenceList[currentIndex]
+            wordTextView.text = currentSentence
+            feedbackIcon.postDelayed({ feedbackIcon.visibility = View.GONE }, 1000)
+        } else {
+            Toast.makeText(this, "Tebrikler! Tüm cümleleri tamamladın.", Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun checkAudioPermission() {
