@@ -2,49 +2,92 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="12dp">
+    android:padding="24dp"
+    android:background="#FAFAFA">
 
-    <TextView
-        android:id="@+id/txtTurkceCumle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ali okula gidiyor"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/editIngilizce"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="İngilizcesini yaz"
-        android:layout_marginTop="8dp" />
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp"
+        android:background="@android:color/white"
+        android:padding="20dp">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp">
-
-        <Button
-            android:id="@+id/btnKontrolEt"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Kontrol Et" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnYenidenDene"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Yeniden Dene"
-            android:layout_marginStart="16dp" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/txtTurkceCumle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ali okula gidiyor"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#333333" />
 
-    <TextView
-        android:id="@+id/txtSonuc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="16sp"
-        android:layout_marginTop="8dp" />
+            <EditText
+                android:id="@+id/editIngilizce"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edit_text_background"
+                android:padding="12dp"
+                android:hint="İngilizcesini yaz"
+                android:textColor="#212121"
+                android:textSize="16sp"
+                android:inputType="text"
+                android:imeOptions="actionDone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btnKontrolEt"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#4CAF50"
+                    android:text="Kontrol Et"
+                    android:textColor="#FFFFFF"
+                    android:textAllCaps="false"
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_marginEnd="12dp"
+                    android:shape="rectangle"
+                    android:stateListAnimator="@null" />
+
+                <Button
+                    android:id="@+id/btnYenidenDene"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#F44336"
+                    android:text="Yeniden Dene"
+                    android:textColor="#FFFFFF"
+                    android:textAllCaps="false"
+                    android:textSize="16sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_marginStart="12dp"
+                    android:stateListAnimator="@null" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtSonuc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text=""
+                android:textSize="16sp"
+                android:textColor="#555555" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 </LinearLayout>
