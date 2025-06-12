@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:background="#4CAF50"
                 android:padding="16dp"
-                android:text="Positive (Simple) Sentence Structure"
+                android:text="Olumlu (Basit) Cümle Yapısı"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
@@ -38,7 +38,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="In English, a basic positive sentence follows this structure:\n\nSubject + Verb + Object\n\nExamples:\n• Ali goes to school.\n• I read a book."
+            android:text="İngilizce'de temel bir olumlu cümle şu yapıyı izler:\n\nÖzne + Yüklem + Nesne\n\nÖrnekler:\n• Ali goes to school.\n• I read a book."
             android:textColor="#333333"
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@id/titleCard"
@@ -68,7 +68,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:padding="8dp"
-                    android:text="SUBJECT"
+                    android:text="ÖZNE"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -88,7 +88,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:padding="8dp"
-                    android:text="VERB"
+                    android:text="YÜKLEM"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -108,7 +108,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:padding="8dp"
-                    android:text="OBJECT"
+                    android:text="NESNE"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -133,7 +133,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Examples"
+                    android:text="Örnekler"
                     android:textColor="#333333"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -190,7 +190,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="(Ali goes to school)"
+                        android:text="(Ali okula gidiyor)"
                         android:textColor="#666666"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -247,7 +247,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="(I read a book)"
+                        android:text="(Bir kitap Okudum)"
                         android:textColor="#666666"
                         android:textSize="16sp" />
                 </LinearLayout>

@@ -31,8 +31,7 @@ class QuestionSentenceFragment : Fragment(R.layout.fragment_qestion_sentence), T
         // View'lar bağlanıyor
         speakButton1 = view.findViewById(R.id.speakButton1)
         speakButton2 = view.findViewById(R.id.speakButton2)
-        text1 = view.findViewById(R.id.textViewQuestion1)
-        text2 = view.findViewById(R.id.textViewQuestion2)
+
 
         speakButton1.setOnClickListener {
             speakOut(text1.text.toString())
