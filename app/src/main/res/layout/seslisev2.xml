@@ -4,91 +4,118 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F0F8FF">
+    android:background="#E0F7FA"
+    android:padding="16dp">
 
-    <!-- Maskot ve Açıklama -->
-    <LinearLayout
-        android:id="@+id/headerLayout"
+    <!-- Başlık ve Maskot (MaterialCardView içinde) -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/headerCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/wordTextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:layout_margin="8dp">
 
-        <ImageView
-            android:id="@+id/maskotImage"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:src="@drawable/gorsel1"
-            android:contentDescription="Maskot" />
-
-        <TextView
-            android:id="@+id/descriptionText"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:text="Kelimeleri doğru şekilde telaffuz etmeye çalış!"
-            android:textSize="16sp"
-            android:textColor="#333"
-            android:layout_weight="1"/>
-    </LinearLayout>
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:background="#00BCD4">
+
+            <ImageView
+                android:id="@+id/maskotImage"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@drawable/gorsel1"
+                android:contentDescription="Maskot"
+                android:layout_marginEnd="12dp"
+                android:scaleType="centerInside"
+                android:background="@drawable/color2"/>
+
+            <TextView
+                android:id="@+id/descriptionText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Hadi, kelimeyi doğru telaffuz et!"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
     <!-- Kelime Kutusu -->
     <TextView
         android:id="@+id/wordTextView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:background="@drawable/rounded_word_box"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:background="@drawable/bg_card_kelime"
         android:text="apple"
-        android:textColor="#000"
-        android:textSize="32sp"
+        android:textColor="#004D40"
+        android:textSize="48sp"
         android:gravity="center"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/headerLayout"
+        android:elevation="6dp"
+        android:letterSpacing="0.1"
+        app:layout_constraintTop_toBottomOf="@id/headerCard"
+        app:layout_constraintBottom_toTopOf="@id/soundLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp"/>
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
 
-    <!-- Ses ve Mikrofon -->
+    <!-- Ses Butonları -->
     <LinearLayout
         android:id="@+id/soundLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="24dp"
+        android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/wordTextView"
+        app:layout_constraintBottom_toTopOf="@id/feedbackIcon"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp">
 
         <ImageButton
             android:id="@+id/soundButton"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:background="@android:color/transparent"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/circle_purple"
             android:src="@drawable/ic_volume"
-            android:contentDescription="Play Sound" />
+            android:tint="#004D40"
+            android:contentDescription="Ses Çal"
+            android:elevation="6dp"
+            android:layout_marginEnd="24dp"/>
 
         <ImageButton
             android:id="@+id/micButton"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:background="@android:color/transparent"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
             android:src="@drawable/ic_sound"
-            android:contentDescription="Speak" />
+            android:contentDescription="Mikrofon"
+            android:elevation="6dp"/>
     </LinearLayout>
 
-    <!-- Doğru / Yanlış Geri Bildirim -->
+    <!-- Geri Bildirim -->
     <ImageView
         android:id="@+id/feedbackIcon"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="16dp"
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/soundLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="Feedback Icon" />
+        android:contentDescription="Geri Bildirim" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

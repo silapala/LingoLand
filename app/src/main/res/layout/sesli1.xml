@@ -2,8 +2,9 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F0F7FF"
-    android:padding="16dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/gradient_backgroundd"
+    android:padding="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,106 +12,113 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-        <TextView
-            android:id="@+id/txtSeviye1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Seviye 1: Sesli Pratik"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:textColor="#2196F3"
-            android:layout_marginBottom="8dp" />
-
-        <TextView
-            android:id="@+id/txtProgress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="İlerleme: 0/10"
-            android:textSize="18sp"
-            android:textColor="#4CAF50"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Maskot Görseli -->
-
-        <!-- Kelimeyi Göster -->
-        <ImageView
-            android:id="@+id/maskotImage"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginBottom="16dp"
-            android:src="@drawable/gorsel1" />
-
-        <TextView
-            android:id="@+id/wordTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="apple"
-            android:textSize="48sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Ses Butonu ve Mikrofon Butonu Yanyana -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginBottom="16dp">
-
-            <ImageButton
-                android:id="@+id/soundButton"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:background="@drawable/color1"
-                android:src="@drawable/ic_volume"
-            android:contentDescription="Ses Çal"
-            />
-
-            <ImageButton
-                android:id="@+id/micButton"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_sound"
-            android:contentDescription="Mikrofon"
-
-            android:layout_marginStart="24dp" />
-
-        </LinearLayout>
-
-        <!-- Geri Bildirim İkonu -->
-        <ImageView
-            android:id="@+id/feedbackIcon"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:visibility="gone"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Açıklama Metni -->
-        <TextView
-            android:id="@+id/descriptionText"
+        <!-- Kart görünümü için CardView -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lütfen kelimeyi doğru şekilde telaffuz edin."
-            android:textSize="18sp"
-            android:textColor="#333333"
-            android:gravity="center"
-            android:layout_marginBottom="24dp" />
+            app:cardCornerRadius="24dp"
+            app:cardElevation="10dp"
+            android:background="@android:color/white"
+            android:padding="24dp">
 
-        <!-- İlerleme göstermek istersen buraya ekleyebilirsin -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
 
-        <Button
-            android:id="@+id/btnGeri"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="🔙 Geri Dön"
-            android:backgroundTint="#9E9E9E"
-            android:textColor="#FFFFFF"
-            android:paddingHorizontal="20dp"
-            android:paddingVertical="10dp"
-            android:layout_gravity="start" />
+                <TextView
+                    android:id="@+id/txtSeviye1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Seviye 1: Sesli Pratik"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:textColor="#3F51B5"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="sans-serif-medium" />
 
+                <TextView
+                    android:id="@+id/txtProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="İlerleme: 0/10"
+                    android:textSize="20sp"
+                    android:textColor="#4CAF50"
+                    android:layout_marginBottom="24dp"
+                    android:fontFamily="sans-serif" />
+
+                <ImageView
+                    android:id="@+id/maskotImage"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_marginBottom="24dp"
+                    android:src="@drawable/gorsel1"
+                    android:contentDescription="Maskot" />
+
+                <TextView
+                    android:id="@+id/wordTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="apple"
+                    android:textSize="56sp"
+                    android:textStyle="bold"
+                    android:textColor="#FF5722"
+                    android:layout_marginBottom="32dp"
+                    android:fontFamily="sans-serif-black" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginBottom="24dp"
+                    android:weightSum="2">
+
+                    <ImageButton
+                        android:id="@+id/soundButton"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/circle_purple"
+                        android:src="@drawable/ic_volume"
+                        android:contentDescription="Ses Çal"
+                        android:elevation="6dp"
+                        android:padding="16dp" />
+
+                    <ImageButton
+                        android:id="@+id/micButton"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_weight="1"
+                        android:contentDescription="Mikrofon"
+                        android:elevation="6dp"
+                        android:padding="16dp"
+                        android:src="@drawable/ic_sound"
+                        />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/feedbackIcon"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:visibility="gone"
+                    android:layout_marginBottom="24dp" />
+
+                <TextView
+                    android:id="@+id/descriptionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lütfen kelimeyi doğru şekilde telaffuz edin."
+                    android:textSize="20sp"
+                    android:textColor="#616161"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif"
+                    android:layout_marginBottom="32dp" />
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
-
 </ScrollView>
