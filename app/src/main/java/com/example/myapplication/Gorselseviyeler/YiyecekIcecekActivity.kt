@@ -3,6 +3,7 @@ package com.example.myapplication.Gorselseviyeler
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -61,7 +62,6 @@ class YiyecekIcecekActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         wordList = listOf(
 
-            WordCard(R.drawable.yemek15, "Milk"),
             WordCard(R.drawable.yemek1, "Cheese"),
             WordCard(R.drawable.yemek2, "Egg"),
             WordCard(R.drawable.yemek3, "Olive"),
@@ -72,13 +72,17 @@ class YiyecekIcecekActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             WordCard(R.drawable.yemek8, "Rice"),
             WordCard(R.drawable.yemek9, "İce cream"),
             WordCard(R.drawable.yemek10, "Chocolate"),
+            WordCard(R.drawable.yemek15, "Milk"),
             WordCard(R.drawable.yemek11, "Cookie"),
             WordCard(R.drawable.yemek12, "Coffee"),
             WordCard(R.drawable.yemek13, "Sandwich"),
             WordCard(R.drawable.yemek14, "Honey"),
             WordCard(R.drawable.yemek18, "Bread"),
         )
-
+        val btnGeri = findViewById<Button>(R.id.btnGeri8)
+        btnGeri.setOnClickListener {
+            finish()
+        }
         wordCardAdapter = WordCardAdapter(wordList) { word ->
             speakWord(word)
         }

@@ -3,6 +3,7 @@ package com.example.myapplication.Gorselseviyeler
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -80,7 +81,10 @@ println(position)
             WordCard(R.drawable.hayvan14, "Rabbit"),
             WordCard(R.drawable.hayvan15, "Butterfly"),
         )
-
+        val btnGeri = findViewById<Button>(R.id.btnGeri2)
+        btnGeri.setOnClickListener {
+            finish()
+        }
         wordCardAdapter = WordCardAdapter(wordList) { word ->
             speakWord(word)
         }

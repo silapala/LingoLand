@@ -3,6 +3,7 @@ package com.example.myapplication.Gorselseviyeler
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -46,7 +47,10 @@ class MeyveSebzeActivity: AppCompatActivity(), TextToSpeech.OnInitListener {
             "Çok iyi ilerledin",
         )
 
-
+        val btnGeri = findViewById<Button>(R.id.btnGeri7)
+        btnGeri.setOnClickListener {
+            finish()
+        }
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 speechBubble.text = messages.random()

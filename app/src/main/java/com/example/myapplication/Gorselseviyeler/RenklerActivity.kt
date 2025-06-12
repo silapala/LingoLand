@@ -3,6 +3,7 @@ package com.example.myapplication.Gorselseviyeler
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -59,13 +60,13 @@ class RenklerActivity: AppCompatActivity(), TextToSpeech.OnInitListener {
         })
 
         wordList = listOf(
-            WordCard(R.drawable.renk1, "Red"),
             WordCard(R.drawable.renk2, "Blue"),
             WordCard(R.drawable.renk3, "Green"),
             WordCard(R.drawable.renk4, "Pink"),
             WordCard(R.drawable.renk5, "Black"),
             WordCard(R.drawable.renk6, "White"),
             WordCard(R.drawable.renk7, "Yellow"),
+            WordCard(R.drawable.renk1, "Red"),
             WordCard(R.drawable.renk8, "Purple"),
             WordCard(R.drawable.renk9, "Brown"),
             WordCard(R.drawable.renk10, "Gray"),
@@ -73,7 +74,10 @@ class RenklerActivity: AppCompatActivity(), TextToSpeech.OnInitListener {
 
 
             )
-
+        val btnGeri = findViewById<Button>(R.id.btnGeri4)
+        btnGeri.setOnClickListener {
+            finish()
+        }
         wordCardAdapter = WordCardAdapter(wordList) { word ->
             speakWord(word)
         }

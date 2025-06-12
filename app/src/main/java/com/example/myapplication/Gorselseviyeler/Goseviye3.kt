@@ -105,6 +105,10 @@ class GoSeviye3 : AppCompatActivity() {
             val random = wordList.random().word
             options.add(random)
         }
+        val btnBack = findViewById<Button>(R.id.btnBack)
+        btnBack.setOnClickListener {
+            finish() // Aktiviteyi kapatır ve önceki ekrana geri döner
+        }
 
         val shuffledOptions = options.shuffled()
         for (i in optionButtons.indices) {

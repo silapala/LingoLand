@@ -3,6 +3,7 @@ package com.example.myapplication.Gorselseviyeler
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -75,7 +76,10 @@ class EvEsyalariActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             WordCard(R.drawable.ev14, "Window"),
             WordCard(R.drawable.ev15, "Home"),
             )
-
+        val btnGeri = findViewById<Button>(R.id.btnGeri9)
+        btnGeri.setOnClickListener {
+            finish()
+        }
         wordCardAdapter = WordCardAdapter(wordList) { word ->
             speakWord(word)
         }
