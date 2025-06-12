@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
 import java.util.*
 import java.util.logging.Handler
+import android.widget.ImageButton
+
 
 class SeSevi3 : AppCompatActivity(), TextToSpeech.OnInitListener {
 
@@ -39,7 +41,7 @@ class SeSevi3 : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         txtTurkceCumle = findViewById(R.id.txtTurkceCumle)
         txtSonuc = findViewById(R.id.txtSonuc)
-        val btnMikrofon = findViewById<Button>(R.id.btnMic)
+        val btnMikrofon = findViewById<ImageButton>(R.id.btnMic) // DÜZENLENDİ
         val btnGeri = findViewById<Button>(R.id.btnGeri)
 
         tts = TextToSpeech(this, this)

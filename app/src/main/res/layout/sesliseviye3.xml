@@ -1,45 +1,121 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
+    android:background="#FFF3E0"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/txtSeviye1"
-        android:layout_width="wrap_content"
+    <!-- Ortalanmış tüm içerik için LinearLayout -->
+    <LinearLayout
+        android:id="@+id/layoutContainer"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Seviye 3: Sesli Pratik"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp"/>
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
-        android:id="@+id/txtTurkceCumle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Türkçe Cümle"
-        android:textSize="20sp"
-        android:layout_marginBottom="16dp"/>
+        <!-- Maskotlu Kart -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardMaskot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp">
 
-    <Button
-        android:id="@+id/btnMic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Konuş"/>
+        </com.google.android.material.card.MaterialCardView>
 
-    <TextView
-        android:id="@+id/txtSonuc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="18sp"
-        android:layout_marginTop="16dp"/>
+        <!-- Seviye Başlığı -->
+        <TextView
+            android:id="@+id/txtSeviye1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seviye 3: Sesli Test"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#6A1B9A"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp" />
 
-    <Button
-        android:id="@+id/btnGeri"
-        android:layout_width="wrap_content"
+        <!-- Türkçe Cümle -->
+        <TextView
+            android:id="@+id/txtTurkceCumle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ben elma yiyorum."
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#D81B60"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Mikrofon Butonu -->
+        <ImageButton
+            android:id="@+id/btnMic"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_sound"
+            android:contentDescription="Konuş"
+            android:backgroundTint="@android:color/transparent"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Sonuç -->
+        <TextView
+            android:id="@+id/txtSonuc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:textColor="#D84315"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Geri Dön Butonu -->
+        <Button
+            android:id="@+id/btnGeri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Geri Dön"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#8E24AA"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Geri Dön"
-        android:layout_marginTop="24dp"/>
-</LinearLayout>
+        android:background="#FFB74D"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="65dp">
+
+        <ImageView
+            android:id="@+id/maskotImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/color2"
+            android:contentDescription="Maskot"
+            android:scaleType="centerInside"
+            android:src="@drawable/gosel4" />
+
+        <TextView
+            android:id="@+id/maskotText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Şimdi test zamanı! Türkçe cümleyi İngilizce söyle, ben de doğruluğunu test edeyim!"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
