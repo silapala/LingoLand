@@ -1,49 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:gravity="center"
-    android:background="@color/cardBackground">
+    android:orientation="vertical"
+    android:background="@drawable/bg_animated"
+    android:padding="16dp">
 
-    <ImageView
-        android:id="@+id/imgExample"
-        android:layout_width="220dp"
-        android:layout_height="220dp"
-        android:layout_gravity="center"
-        android:scaleType="fitCenter"
-        android:src="@drawable/gorsel2" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txtRuleTitle"
-        android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/imgExample"
+                    android:layout_width="240dp"
+                    android:layout_height="240dp"
+                    android:contentDescription="Örnek Görsel"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/gorsel2" />
+
+                <TextView
+                    android:id="@+id/txtRuleTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="🎉 İngilizce Kuralları"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple_700a"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtRuleDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="A1 seviyesinde öğrenmeyi kolaylaştıran kısa açıklama buraya gelir."
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <!-- Butonlar alta alındı -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Başlık"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        android:textColor="@color/titleColor"
-        android:layout_marginTop="12dp"
-        android:textAlignment="center" />
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="8dp">
 
-    <TextView
-        android:id="@+id/txtRuleDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Açıklama"
-        android:textSize="18sp"
-        android:textColor="@color/descColor"
-        android:layout_marginTop="8dp"
-        android:textAlignment="center" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPrevious"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="12dp"
+            android:text="Önceki"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:strokeColor="@color/white"
+            app:strokeWidth="2dp" />
 
-    <TextView
-        android:id="@+id/txtExample"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Örnek cümle"
-        android:textSize="17sp"
-        android:textStyle="italic"
-        android:textColor="@color/exampleColor"
-        android:layout_marginTop="8dp"
-        android:textAlignment="center" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNext"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="12dp"
+            android:text="Sonraki"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:strokeColor="@color/white"
+            app:strokeWidth="2dp" />
+    </LinearLayout>
+
 </LinearLayout>

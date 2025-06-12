@@ -139,7 +139,7 @@ class Gorsev2 : AppCompatActivity() {
 
         )
 
-        val adapter = GrammarPagerAdapter(this, grammarCards)
+        val adapter = GrammarPagerAdapter(this, grammarCards, viewPager) // ✅ Doğru kullanım
         viewPager.adapter = adapter
     }
 }

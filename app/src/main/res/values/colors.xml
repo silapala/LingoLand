@@ -37,5 +37,13 @@
     <color name="blue_200">#90CAF9</color>
     <color name="blue_n">#6E90CAF9</color>
     <color name="yellow_200">#FFF59D</color>
+    <color name="purple_700a">#7B1FA2</color>
+    <color name="cardBackgrounda">#FFF9C4</color>
+    <color name="titleColora">#5D1049</color>
+    <color name="descColora">#424242</color>
+    <color name="bgColor1">#FFD3E0</color>
+    <color name="bgColor2">#D3F6FF</color>
+    <color name="bgColor3">#D3FFD3</color>
+
 
 </resources>
