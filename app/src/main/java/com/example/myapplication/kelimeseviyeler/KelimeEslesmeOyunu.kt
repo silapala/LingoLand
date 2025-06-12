@@ -96,7 +96,10 @@ class KelimeEslesmeOyunu : AppCompatActivity() {
                 secilenIngilizce.add(ing)
                 secilenTurkce.add(tr)
             }
-
+            val btnGeri = findViewById<Button>(R.id.btnGeri10)
+            btnGeri.setOnClickListener {
+                finish()
+            }
             Toast.makeText(this, "Doğru eşleşme sayısı: $dogru", Toast.LENGTH_SHORT).show()
         }
     }

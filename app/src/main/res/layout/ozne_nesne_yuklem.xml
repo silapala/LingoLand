@@ -31,8 +31,44 @@
             android:background="#FFFFFF"
             android:layout_marginBottom="24dp" />
 
+        <!-- Başlıklar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="3"
+            android:layout_marginBottom="4dp">
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Özne"
+                android:textSize="18sp"
+                android:textColor="#5D4037"
+                android:textAlignment="center" />
 
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yüklem"
+                android:textSize="18sp"
+                android:textColor="#0D47A1"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nesne"
+                android:textSize="18sp"
+                android:textColor="#2E7D32"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+        <!-- Kutular -->
         <LinearLayout
             android:id="@+id/layoutKutular"
             android:layout_width="match_parent"
@@ -50,15 +86,7 @@
                 android:orientation="vertical"
                 android:gravity="center"
                 android:padding="8dp"
-                android:layout_margin="4dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Özne"
-                    android:textColor="#5D4037"
-                    android:textSize="18sp" />
-            </LinearLayout>
+                android:layout_margin="4dp" />
 
             <LinearLayout
                 android:id="@+id/kutuYuklem"
@@ -69,15 +97,7 @@
                 android:orientation="vertical"
                 android:gravity="center"
                 android:padding="8dp"
-                android:layout_margin="4dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Yüklem"
-                    android:textSize="18sp"
-                    android:textColor="#0D47A1" />
-            </LinearLayout>
+                android:layout_margin="4dp" />
 
             <LinearLayout
                 android:id="@+id/kutuNesne"
@@ -88,17 +108,10 @@
                 android:orientation="vertical"
                 android:gravity="center"
                 android:padding="8dp"
-                android:layout_margin="4dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nesne"
-                    android:textSize="18sp"
-                    android:textColor="#2E7D32" />
-            </LinearLayout>
+                android:layout_margin="4dp" />
         </LinearLayout>
 
+        <!-- Kelime kutuları -->
         <LinearLayout
             android:id="@+id/layoutKelimeKutusu"
             android:layout_width="match_parent"
@@ -107,6 +120,7 @@
             android:gravity="center"
             android:layout_marginBottom="24dp" />
 
+        <!-- Kontrol ve Geri -->
         <Button
             android:id="@+id/btnKontrol"
             android:layout_width="match_parent"

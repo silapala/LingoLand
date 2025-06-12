@@ -48,7 +48,6 @@ class KeliPrati2 : AppCompatActivity() {
 
         viewPager.adapter = KelimePagerAdapter(this, sayfalar)
 
-        // Maskot açıklaması zaten XML'de var
     }
 }
 

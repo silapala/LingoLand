@@ -107,7 +107,7 @@
         android:weightSum="2">
 
         <Button
-            android:id="@+id/btnGeri"
+            android:id="@+id/btnGeri10"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="56dp"

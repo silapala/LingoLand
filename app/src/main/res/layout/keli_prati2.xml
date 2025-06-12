@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF"
+    android:background="@drawable/bg_gecis_mavi"
     android:padding="16dp">
 
     <ImageView
@@ -37,5 +37,10 @@
         android:layout_height="wrap_content"
         android:text="Geri Dön"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/colorBacakground"
+        android:textColor="@android:color/white"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:layout_marginBottom="16dp" />
 </LinearLayout>
